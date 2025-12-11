@@ -16,16 +16,17 @@ import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
-import tailwindcss from "./tech/tailwindcss.png"; // DEĞİŞTİR !!!!!!!!!!
+import github from "./tech/github.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import python from "./tech/python.png";
+import expo from "./tech/expo.png";
 
 import kos from "./company/kos.png";
 import yetgen from "./company/yetgen.png";
 import oua from "./company/oua.png";
 import aselsan from "./company/aselsan.png";
-import teknofest from "./company/teknofest.png"; // EKLE !!!!!!!!!!
+import teknofest from "./company/teknofest.png";
 
 import KFAU_Academy from "./KFAU_Academy.png";
 import SHOPIX from "./SHOPIX.png";
@@ -52,10 +53,11 @@ export {
   mongodb,
   nodejs,
   reactjs,
-  tailwindcss,
+  github,
   tailwind,
   typescript,
   python,
+  expo,
   kos,
   yetgen,
   oua,

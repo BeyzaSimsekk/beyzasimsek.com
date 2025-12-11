@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import backend from "./backend.png";
+import frontend from "./frontend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
@@ -35,9 +35,11 @@ import BYZAI from "./BYZAI.png";
 import Molix from "./Molix.png";
 import Foodix from "./Foodix.png";
 
+import threejs from "./tech/threejs.svg";
+
 export {
   logo,
-  backend,
+  frontend,
   creator,
   mobile,
   web,
@@ -68,5 +70,6 @@ export {
   Resumai,
   BYZAI,
   Molix,
-  Foodix
+  Foodix,
+  threejs
 };

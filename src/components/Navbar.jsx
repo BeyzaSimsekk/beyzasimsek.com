@@ -25,7 +25,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="logo"
-            className="w-11 h-11 object-contain hover:scale-108 transition-transform duration-500"
+            className="w-18 h-18 object-contain hover:scale-108 transition-transform duration-500 sm:w-14 sm:h-14"
           />
           <p className="text-white text-[18px] font-bold cursor-pointer flex-col sm:flex hidden">
             <span className="hover:text-[#4da6c9]">Beyza Simsek </span>

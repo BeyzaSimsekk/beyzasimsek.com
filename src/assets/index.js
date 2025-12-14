@@ -16,7 +16,6 @@ import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
-import github from "./tech/github.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import python from "./tech/python.png";
@@ -55,7 +54,6 @@ export {
   mongodb,
   nodejs,
   reactjs,
-  github,
   tailwind,
   typescript,
   python,

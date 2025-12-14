@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import { nav } from "framer-motion/client";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -21,12 +22,31 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-          <p className="text-white text-[18px] font-bold cursor-pointer flex ">
-            Beyza Simsek &nbsp;
-            <span className="sm:block hidden"> | Junior Web Developer</span>
+          <img
+            src={logo}
+            alt="logo"
+            className="w-11 h-11 object-contain hover:scale-108 transition-transform duration-500"
+          />
+          <p className="text-white text-[18px] font-bold cursor-pointer flex-col sm:flex hidden">
+            <span className="hover:text-[#4da6c9]">Beyza Simsek </span>
+            <span className="hover:text-[#2b6f8a] sm:block hidden">
+              | Junior Web Developer
+            </span>
           </p>
         </Link>
+        <ul className="list-none hidden sm:flex flex-row gap-10">
+          {navLinks.map((link) => (
+            <li
+              key={link.id}
+              className={`${
+                active === link.title ? "text-white" : "text-secondary"
+              } hover:text-white hover:scale-105 transition transform ease-in-out text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive(link.title)}
+            >
+              <a href={`#${link.id}`}>{link.title}</a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );

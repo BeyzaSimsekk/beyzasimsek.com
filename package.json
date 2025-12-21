@@ -24,7 +24,7 @@
     "react-tilt": "^1.0.2",
     "react-vertical-timeline-component": "^3.5.3",
     "tailwindcss": "^4.1.17",
-    "three": "^0.181.2"
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

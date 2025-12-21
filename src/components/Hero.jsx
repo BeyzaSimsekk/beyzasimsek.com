@@ -110,7 +110,7 @@ const Hero = () => {
         </div>
 
         {/* Hero Title Container */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 z-10">
           <h1
             ref={titleRef}
             className={`${styles.heroHeadText} flex flex-wrap whitespace-nowrap overflow-hidden cursor-default`}

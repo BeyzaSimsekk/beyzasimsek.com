@@ -46,7 +46,7 @@ const Hero = () => {
     return () => ctx.revert();
   }, []);
 
-  // Hover efekti: Harfin üzerine gelince zıplama efekti (daha küçük)
+  // Hover efekti: Harfin üzerine gelince zıplama efekti
   const onEnter = (e, index) => {
     setHoveredIndex(index);
     gsap.to(e.target, {

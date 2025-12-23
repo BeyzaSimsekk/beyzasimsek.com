@@ -29,10 +29,6 @@ const Navbar = () => {
           />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             <span className="hover:text-[#4da6c9]">Beyza Simsek </span>
-            &nbsp;
-            <span className="hover:text-[#2b6f8a] font-normal sm:block hidden">
-              | Junior Web Developer
-            </span>
           </p>
         </Link>
         {/* Desktop Menu */}

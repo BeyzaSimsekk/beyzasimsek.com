@@ -13,33 +13,23 @@ const Hero = () => {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
-      // 1️⃣ Hi, I'm → sade fade + hafif yukarı
-      // İkisini de aynı anda başlat
+      // SADECE GİRİŞ ANİMASYONU
+      // Hem "Hi, I'm" hem de "Beyza" harflerini (letter-animation) aynı anda başlatıyoruz.
+      // fromTo kullanarak başlangıç pozisyonlarını (y:20) garanti altına alıyoruz.
       tl.fromTo(
-        ".hi-text",
-        { opacity: 0, y: 20 },
+        ".hi-text, .letter-animation",
+        {
+          opacity: 0,
+          y: 20, // Hepsi 20px aşağıdan başlasın
+          willChange: "opacity, transform",
+        },
         {
           opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          immediateRender: false,
-        },
-        0
-      );
-
-      tl.from(
-        ".letter-animation",
-        {
-          y: 100,
-          opacity: 0,
+          y: 0, // Yerlerine otursunlar
           duration: 0.8,
-          stagger: 0.035,
-          ease: "back.out(1.7)",
-          clearProps: "all",
-          immediateRender: false,
-        },
-        0
+          ease: "power2.out",
+          stagger: 0.02, // Harfler çok hafif sırayla gelsin (akıcılık için)
+        }
       );
     }, comp);
 
@@ -55,6 +45,7 @@ const Hero = () => {
       color: "#915eff",
       duration: 0.5,
       ease: "power1.out",
+      overwrite: "auto", // Eğer önceki animasyon bitmediyse onu ezer, titremeyi önler
     });
   };
 
@@ -67,6 +58,7 @@ const Hero = () => {
       color: "inherit",
       duration: 0.5,
       ease: "power1.inOut",
+      overwrite: "auto",
     });
   };
 
@@ -87,8 +79,8 @@ const Hero = () => {
         key={index}
         onMouseEnter={(e) => onEnter(e, index)}
         onMouseLeave={onLeave}
-        style={{ opacity: 0, transform: "translateY(100px)" }}
-        className={`letter-animation inline-block cursor-default transition-all duration-500 ease-out ${
+        // Başlangıç stilini temiz tutuyoruz, GSAP zaten fromTo ile yönetecek
+        className={`letter-animation inline-block cursor-default transition-colors duration-300 ${
           isName ? "text-[#915eff]" : "text-white"
         } ${getFontWeight(index)}`}
       >

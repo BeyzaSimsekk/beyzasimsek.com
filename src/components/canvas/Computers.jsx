@@ -37,7 +37,7 @@ const ComputersCanvas = () => {
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
-      {/* fallback = {<CanvasLoader />} eklenecek***** BURADA KALDIM Loader.jsx */}
+      {/* fallback = {<CanvasLoader />} eklenecek***** BURADA KALDIM Loader.jsx 58.10 */}
       <Suspense>
         <OrbitControls
           enableZoom={false}

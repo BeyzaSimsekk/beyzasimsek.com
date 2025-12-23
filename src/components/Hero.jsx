@@ -1,40 +1,56 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import gsap from "gsap";
 import { ComputersCanvas } from "./canvas";
+import { logo } from "../assets";
+
+// SPLASH SCREEN BİLEŞENİ
+const SplashScreen = () => (
+  <div className="fixed inset-0 z-100 flex items-center justify-center bg-primary">
+    <div className="flex flex-col items-center">
+      <img src={logo} alt="logo" />
+      <div className="w-20 h-20 border-4 border-[#915eff] border-t-transparent rounded-full animate-spin" />
+      <p className="mt-4 text-white font-medium animate-pulse">
+        Loading Experience...
+      </p>
+    </div>
+  </div>
+);
 
 const Hero = () => {
+  const [loading, setLoading] = useState(true); // Splash ekran kontrolü
   const comp = useRef(null);
   const titleRef = useRef(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
-      // SADECE GİRİŞ ANİMASYONU
-      // Hem "Hi, I'm" hem de "Beyza" harflerini (letter-animation) aynı anda başlatıyoruz.
-      // fromTo kullanarak başlangıç pozisyonlarını (y:20) garanti altına alıyoruz.
-      tl.fromTo(
-        ".hi-text, .letter-animation",
-        {
-          opacity: 0,
-          y: 20, // Hepsi 20px aşağıdan başlasın
-          willChange: "opacity, transform",
-        },
-        {
-          opacity: 1,
-          y: 0, // Yerlerine otursunlar
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.02, // Harfler çok hafif sırayla gelsin (akıcılık için)
-        }
-      );
-    }, comp);
-
-    return () => ctx.revert();
+  // Splash ekranı kapatma (Örn: 2 saniye sonra veya Canvas hazır olduğunda)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 saniye ideal bir süredir
+    return () => clearTimeout(timer);
   }, []);
+
+  useLayoutEffect(() => {
+    if (!loading) {
+      let ctx = gsap.context(() => {
+        const tl = gsap.timeline();
+        tl.fromTo(
+          ".hi-text, .letter-animation",
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            stagger: 0.02,
+          }
+        );
+      }, comp);
+      return () => ctx.revert();
+    }
+  }, [loading]); // Sadece loading bittiğinde animasyon başlar
 
   // Hover efekti: Harfin üzerine gelince zıplama efekti
   const onEnter = (e, index) => {
@@ -90,43 +106,52 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full h-screen mx-auto" ref={comp}>
-      <div
-        className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
+    <>
+      {/* Splash Ekranı */}
+      {loading && <SplashScreen />}
+      <section
+        className={`flex flex-col gap-5 relative w-full h-screen mx-auto ${
+          loading ? "opacity-0" : "opacity-100 transition-opacity duration-1000"
+        }`}
+        ref={comp}
       >
-        <div className="flex flex-col justify-center items-center mt-5">
-          {/* Rounded ball */}
-          <div className="w-5 h-5 rounded-full bg-[#915eff]" />
-          {/* Vertical line */}
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
-        </div>
+        <div
+          className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
+        >
+          <div className="flex flex-col justify-center items-center mt-5">
+            {/* Rounded ball */}
+            <div className="w-5 h-5 rounded-full bg-[#915eff]" />
+            {/* Vertical line */}
+            <div className="w-1 sm:h-80 h-40 violet-gradient" />
+          </div>
 
-        {/* Hero Title Container */}
-        <div className="flex flex-col gap-3 z-10">
-          <h1
-            ref={titleRef}
-            className={`${styles.heroHeadText} flex flex-wrap whitespace-nowrap overflow-hidden cursor-default`}
-          >
-            <div className="flex items-baseline">
-              {/* SADE GİRİŞ */}
-              <span className="hi-text opacity-0">Hi, I'm</span>
-              &nbsp;
-              {/* HARF ANİMASYONU */}
-              <span className="ml-2 sm:ml-4 text-[#915eff]">
-                {splitText("Beyza", true)}
-              </span>
-            </div>
-          </h1>
-          <p className={`${styles.heroSubText} text-white-100`}>
-            Versatile Full-stack Developer with a passion for frontend
-            excellence. <br className="sm:block hidden" /> Crafting
-            high-performance applications using React, Node.js, and React Native
-            with a keen eye for UI/UX.
-          </p>
+          {/* Hero Title Container */}
+          <div className="flex flex-col gap-3 z-10">
+            <h1
+              ref={titleRef}
+              className={`${styles.heroHeadText} flex flex-wrap whitespace-nowrap overflow-hidden cursor-default`}
+            >
+              <div className="flex items-baseline">
+                {/* SADE GİRİŞ */}
+                <span className="hi-text opacity-0">Hi, I'm</span>
+                &nbsp;
+                {/* HARF ANİMASYONU */}
+                <span className="ml-2 sm:ml-4 text-[#915eff]">
+                  {splitText("Beyza", true)}
+                </span>
+              </div>
+            </h1>
+            <p className={`${styles.heroSubText} text-white-100 mb-10`}>
+              Versatile Full-stack Developer with a passion for frontend
+              excellence. <br className="sm:block hidden" /> Crafting
+              high-performance applications using React, Node.js, and React
+              Native with a keen eye for UI/UX.
+            </p>
+          </div>
         </div>
-      </div>
-      <ComputersCanvas />
-    </section>
+        <ComputersCanvas />
+      </section>
+    </>
   );
 };
 

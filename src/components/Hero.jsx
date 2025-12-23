@@ -143,16 +143,15 @@ const Hero = () => {
             </h1>
             <p className={`${styles.heroSubText} text-white-100 mb-10`}>
               Versatile Full-stack Developer with a passion for frontend
-              excellence. <br className="sm:block hidden" /> Crafting
-              high-performance applications using React, Node.js, and React
-              Native with a keen eye for UI/UX.
+              excellence, <br className="sm:block hidden" /> specializing in
+              developing high-performance web and mobile applications.
             </p>
           </div>
         </div>
         <ComputersCanvas />
 
         {/* Scroll Down Arrow */}
-        <div className="absolute bottom-8 right-8 z-20">
+        <div className="absolute bottom-3 xs:right-15 right-39 z-20">
           <a href="#about">
             <div className="w-[35px] h-16 rounded-3xl border-4 border-secondary flex justify-center items-start p-2 hover:border-white transition-colors">
               <motion.div

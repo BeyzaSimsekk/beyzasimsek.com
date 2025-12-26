@@ -7,6 +7,8 @@ import { services } from "../constants";
 
 import { fadeIn, textVariant } from "../utils/motion";
 
+import { SectionWrapper } from "../hoc";
+
 const ServiceCard = ({ index, title, icon }) => {
   return (
     <Tilt className="xs:w-[250px] w-full">
@@ -34,10 +36,7 @@ const ServiceCard = ({ index, title, icon }) => {
 
 const About = () => {
   return (
-    <section
-      id="about"
-      className={`${styles.padding2} max-w-7xl mx-auto relative z-0 mt-20`}
-    >
+    <>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview.</h2>
@@ -45,7 +44,7 @@ const About = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+        className="mt-4 text-secondary sm:text-[17px] text-[15px] max-w-3xl leading-[30px]"
       >
         I'm a clever junior web developer passionate about frontend and
         full-stack projects, with experience in JavaScript, TypeScript, and the
@@ -57,13 +56,13 @@ const About = () => {
         collaborate on your next creative venture!
       </motion.p>
 
-      <div className="pt-20 flex flex-wrap gap-12">
+      <div className="pt-12 flex flex-wrap gap-10">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
       </div>
-    </section>
+    </>
   );
 };
 
-export default About;
+export default SectionWrapper(About, "about");

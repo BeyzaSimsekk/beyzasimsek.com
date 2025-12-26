@@ -56,11 +56,11 @@ const services = [
     icon: mobile,
   },
   {
-    title: "Frontend Developer | UI/UX Designer",
+    title: "Frontend Developer",
     icon: frontend,
   },
   {
-    title: "Content Creator",
+    title: "UI/UX Designer",
     icon: creator,
   },
 ];

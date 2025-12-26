@@ -2,6 +2,7 @@ const styles = {
   paddingX: "xl:px-36 lg:px-16 md:px-25 sm:px-16 px-6",
   paddingY: "sm:py-16 py-6",
   padding: "xl:px-36 lg:px-16 md:px-25 sm:px-16 px-6 sm:py-16 py-10",
+  padding2:"xl:pl-30 xl:pr-3 lg:px-16 md:px-25 sm:px-16 px-6 sm:py-16 py-10", // left and right padding decreased 
 
   heroHeadText:
     "font-bold text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2",

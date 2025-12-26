@@ -136,7 +136,7 @@ const Hero = () => {
                 <span className="hi-text opacity-0">Hi, I'm</span>
                 &nbsp;
                 {/* HARF ANİMASYONU */}
-                <span className="ml-2 sm:ml-4 text-[#915eff]">
+                <span className="ml-1 sm:ml-2 text-[#915eff]">
                   {splitText("Beyza", true)}
                 </span>
               </div>

@@ -297,7 +297,7 @@ const experiences = [
     title: "Intern",
     company_name: "Aselsan",
     icon: aselsan,
-    iconBg: "#112342",
+    iconBg: "#0B2F87",
     date: "July 2024 - August 2024",
     points: [
         "Worked on computer vision pipelines involving YOLO models, post-training quantization workflows, and ONNX-based inference processes.",

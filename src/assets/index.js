@@ -16,6 +16,7 @@ import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
+import github_t from "./tech/github_t.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import python from "./tech/python.png";
@@ -34,7 +35,7 @@ import BYZAI from "./BYZAI.png";
 import Molix from "./Molix.png";
 import Foodix from "./Foodix.png";
 
-import threejs from "./tech/threejs.svg";
+//import threejs from "./tech/threejs.svg";
 
 export {
   logo,
@@ -54,6 +55,7 @@ export {
   mongodb,
   nodejs,
   reactjs,
+  github_t,
   tailwind,
   typescript,
   python,
@@ -69,5 +71,4 @@ export {
   BYZAI,
   Molix,
   Foodix,
-  threejs
 };

@@ -8,6 +8,7 @@ import {
   html,
   css,
   reactjs,
+  github_t,
   expressjs,
   tailwind,
   nodejs,
@@ -28,7 +29,6 @@ import {
   BYZAI,
   Molix,
   Foodix,
-  threejs
 } from "../assets";
 
 export const navLinks = [
@@ -88,15 +88,15 @@ const technologies = [
   },
   {
     name: "Github",
-    icon: github,
+    icon: github_t,
   },
   {
     name: "Tailwind CSS",
     icon: tailwind,
   },
   {
-    name: "Node JS",
-    icon: nodejs,
+    name: "Expo",
+    icon: expo,
   },
   {
     name: "MongoDB",
@@ -119,12 +119,8 @@ const technologies = [
     icon: python,
   },
   {
-    name: "Expo",
-    icon: expo,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
+    name: "Node JS",
+    icon: nodejs,
   },
 ];
 

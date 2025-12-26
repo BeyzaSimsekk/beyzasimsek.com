@@ -151,7 +151,7 @@ const Hero = () => {
         <ComputersCanvas />
 
         {/* Scroll Down Arrow */}
-        <div className="absolute bottom-3 xs:right-15 right-39 z-15">
+        <div className="absolute bottom-8 right-8 sm:bottom-4 sm:right-10 md:bottom-4 md:right-12 lg:bottom-2 lg:right-1/2 lg:translate-x-1/2 z-15">
           <a href="#about">
             <div className="w-[35px] h-16 rounded-3xl border-4 border-secondary flex justify-center items-start p-2 hover:border-white transition-colors">
               <motion.div

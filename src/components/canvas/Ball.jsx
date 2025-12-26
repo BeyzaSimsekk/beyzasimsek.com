@@ -1,5 +1,5 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import {
   Decal,
   Float,
@@ -12,10 +12,27 @@ import CanvasLoader from "../Loader";
 
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
+  const meshRef = useRef();
 
   if (decal) {
     decal.anisotropy = 16; // Kenar yumuşatma ve netlik artırır
   }
+
+  // Döndürme animasyonu
+  // useFrame her render karesinde çalışır
+  useFrame((state) => {
+    if (!meshRef.current) return;
+
+    const time = state.clock.getElapsedTime();
+
+    // Y ekseninde (sağa sola) sınırlı salınım
+    // 0.4 katsayısı dönüş açısını belirler (yaklaşık 23 derece sağa-sola)
+    // 1.5 katsayısı ise salınım hızını belirler
+    meshRef.current.rotation.y = Math.sin(time * 0.75) * 0.3;
+
+    // Hafif bir yukarı-aşağı (X ekseni) salınım ekleyerek daha derinlik katabiliriz
+    meshRef.current.rotation.x = Math.cos(time * 0.75) * 0.1;
+  });
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
@@ -29,7 +46,7 @@ const Ball = (props) => {
         intensity={1}
         castShadow
       />
-      <mesh castShadow receiveShadow scale={2.75}>
+      <mesh ref={meshRef} castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color="#fff"
@@ -53,7 +70,6 @@ const Ball = (props) => {
 const BallCanvas = ({ icon }) => {
   return (
     <Canvas
-      frameloop="demand"
       gl={{ preserveDrawingBuffer: true }}
       onCreated={({ gl }) => {
         gl.toneMappingExposure = 1.2; // Genel parlaklığı artırır

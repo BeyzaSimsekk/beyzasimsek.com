@@ -31,6 +31,8 @@ const About = () => {
         problems and bringing innovative ideas to life through code. Let's
         collaborate on your next creative venture!
       </motion.p>
+
+      <div></div>
     </section>
   );
 };

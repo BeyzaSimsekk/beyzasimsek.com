@@ -24,7 +24,7 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-tertiary p-5 rounded-2xl sm:w-[350px] w-full"
       >
         <div className="relative w-full h-[230px]">
           <img
@@ -32,6 +32,19 @@ const ProjectCard = ({
             alt={name}
             className="w-full h-full object-cover rounded-2xl"
           />
+
+          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+            <div
+              onClick={() => window.open(source_code_link, "_blank")}
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-108 transition-transform duration-300"
+            >
+              <img
+                src={github}
+                alt="github"
+                className="w-7 h-7 object-contain"
+              />
+            </div>
+          </div>
         </div>
       </Tilt>
     </motion.div>
@@ -41,12 +54,19 @@ const ProjectCard = ({
 const Works = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>My Work</p>
-        <h2 className={styles.sectionHeadText}>Projects.</h2>
-      </motion.div>
+      <div className="max-w-7xl mx-auto w-full px-0 xl:px-4">
+        <motion.div
+          variants={textVariant()}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          <p className={styles.sectionSubText}>My Work</p>
+          <h2 className={styles.sectionHeadText}>Projects.</h2>
+        </motion.div>
+      </div>
 
-      <div className="w-full flex">
+      <div className="w-full flex px-0 xl:px-4">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
@@ -61,7 +81,7 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-16 flex flex-wrap gap-9">
+      <div className="mt-16 flex flex-wrap gap-7 px-0 xl:px-4">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}

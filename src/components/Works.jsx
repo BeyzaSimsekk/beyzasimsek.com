@@ -8,6 +8,14 @@ import { SectionWrapper } from "../hoc";
 
 import { fadeIn, textVariant } from "../utils/motion";
 
+const tagStyles = {
+  "blue-text-gradient": "text-blue-400 border-blue-400 bg-blue-500/10",
+  "green-text-gradient": "text-green-400 border-green-400 bg-green-500/10",
+  "pink-text-gradient": "text-pink-400 border-pink-400 bg-pink-500/10",
+  "purple-text-gradient": "text-purple-400 border-purple-400 bg-purple-500/10",
+  "orange-text-gradient": "text-orange-400 border-orange-400 bg-orange-500/10",
+};
+
 const ProjectCard = ({
   index,
   name,
@@ -49,9 +57,23 @@ const ProjectCard = ({
         </div>
 
         {/* Project Details */}
-        <div className="mt-5">
+        <div className="mt-5 cursor-default">
           <h3 className="text-white font-bold text-[24px]">{name}</h3>
           <p className="mt-2 text-secondary text-[14px]">{description}</p>
+        </div>
+
+        {/* Project Tags */}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <p
+              key={tag.name}
+              className={`text-[12px] font-medium border px-3 py-1 rounded-full cursor-default ${
+                tagStyles[tag.color] || "text-white border-white bg-white/10"
+              }`}
+            >
+              #{tag.name}
+            </p>
+          ))}
         </div>
       </Tilt>
     </motion.div>

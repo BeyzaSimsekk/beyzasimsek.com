@@ -35,6 +35,9 @@ import BYZAI from "./BYZAI.png";
 import Molix from "./Molix.png";
 import Foodix from "./Foodix.png";
 
+import kfau from "./kfau.png";
+import mal from "./mal.png";
+
 //import threejs from "./tech/threejs.svg";
 
 export {
@@ -71,4 +74,6 @@ export {
   BYZAI,
   Molix,
   Foodix,
+  kfau,
+  mal
 };

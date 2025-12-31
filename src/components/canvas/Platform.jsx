@@ -3,7 +3,6 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   ContactShadows,
   Environment,
-  OrbitControls,
   Preload,
   useGLTF,
 } from "@react-three/drei";
@@ -13,17 +12,28 @@ import CanvasLoader from "../Loader";
 
 // --- 1. KAMERA KONTROL BİLEŞENİ (YENİ) ---
 // Bu bileşen Canvas'ın içinde durur ve ekran boyutu değişince kamerayı hareket ettirir.
-const CameraRig = ({ isMobile, isExtraSmall }) => {
+const CameraRig = ({ isMobile }) => {
   const { camera } = useThree();
 
-  // Hedef Z pozisyonunu belirle
-  const targetZ = isExtraSmall ? 11 : isMobile ? 10 : 9;
+  // Mobilde asansörü yukarı çekmek için TargetY (Kamera yüksekliği)
+  const targetZ = isMobile ? 11 : 9;
+  const targetY = isMobile ? 0.3 : 1.5;
 
-  useFrame((state, delta) => {
+  useFrame(() => {
+    // Pozisyon Geçişi (Lerp)
     camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, 0.1);
+    camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetY, 0.1);
+
+    // BURASI ÖNEMLİ: OrbitControls'un "target" mantığı budur.
+    // Kameraya her karede [0, 0, 0] noktasına bakmasını söylüyoruz.
+    // Mobilde asansör aşağıda kalıyorsa (0, 0.5, 0) gibi yukarı bakmasını sağlayabilirsin.
+    camera.lookAt(0, isMobile ? 0.5 : 0, 0);
+
+    // Matris güncellemelerini zorla (Kesilmeleri önlemek için)
+    camera.updateProjectionMatrix();
   });
 
-  return null; // Görünür bir şey render etmez
+  return null;
 };
 
 const Elevator = ({ currentLevel, isMobile, isExtraSmall }) => {
@@ -34,7 +44,7 @@ const Elevator = ({ currentLevel, isMobile, isExtraSmall }) => {
 
   if (currentLevel === "university") {
     // Üniversite katı: Mobilde biraz daha aşağıda dursun ki yazıya yer kalsın
-    targetY = isMobile ? 0.3 : 0.8;
+    targetY = isMobile ? 0.9 : 0.8;
   } else {
     // Lise katı: Mobilde ve Desktopta aşağı iniş mesafesi
     targetY = isMobile ? -1.0 : -1.5;
@@ -104,13 +114,6 @@ const PlatformCanvas = ({ currentLevel }) => {
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2.5}
-          target={[0, 0, 0]}
-        />
-
         {/* Kamerayı yöneten görünmez bileşen */}
         <CameraRig isMobile={isMobile} />
 

@@ -25,7 +25,12 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       <Tilt
         options={{
           max: 45,
@@ -98,6 +103,9 @@ const Works = () => {
       <div className="w-full flex px-0 xl:px-4">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           The following projects highlight my skills and experience through

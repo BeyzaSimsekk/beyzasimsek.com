@@ -40,7 +40,7 @@ const Elevator = ({ currentLevel, isMobile, isExtraSmall }) => {
     targetY = isMobile ? -1.0 : -1.5;
   }
 
-  useFrame((state, delta) => {
+  useFrame((state) => {
     if (meshRef.current) {
       // 1. Asansör Hareketi (Yumuşak Geçiş - Lerp)
       meshRef.current.position.y = THREE.MathUtils.lerp(
@@ -77,19 +77,11 @@ const Elevator = ({ currentLevel, isMobile, isExtraSmall }) => {
 };
 
 const PlatformCanvas = ({ currentLevel }) => {
-  // Başlangıç değerlerini güvenli belirleyelim
-  const [screenSize, setScreenSize] = useState({
-    isMobile: false,
-    isExtraSmall: false,
-  });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
-      setScreenSize({
-        isMobile: width < 768,
-        isExtraSmall: width < 450,
-      });
+      setIsMobile(window.innerWidth < 768);
     };
 
     handleResize();
@@ -114,16 +106,9 @@ const PlatformCanvas = ({ currentLevel }) => {
         />
 
         {/* Kamerayı yöneten görünmez bileşen */}
-        <CameraRig
-          isMobile={screenSize.isMobile}
-          isExtraSmall={screenSize.isExtraSmall}
-        />
+        <CameraRig isMobile={isMobile} />
 
-        <Elevator
-          currentLevel={currentLevel}
-          isMobile={screenSize.isMobile}
-          isExtraSmall={screenSize.isExtraSmall}
-        />
+        <Elevator currentLevel={currentLevel} isMobile={isMobile} />
       </Suspense>
 
       <Preload all />

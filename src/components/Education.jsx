@@ -15,7 +15,7 @@ const Education = () => {
   return (
     <>
       {/* TITLE */}
-      <div className="max-w-7xl mx-auto w-full px-0 xl:px-4">
+      <div className="max-w-7xl mx-auto w-full px-0 xl:px-2">
         <motion.div
           variants={textVariant()}
           initial="hidden"
@@ -36,7 +36,7 @@ const Education = () => {
           </div>
 
           {/* Butonlar */}
-          <div className="flex flex-row md:flex-col gap-4 z-10 w-full md:w-auto justify-center md:justify-start md:ml-[-60px] md:mt-10 px-4 md:px-0">
+          <div className="flex flex-col xs:flex-row sm:flex-col xl:flex-col gap-4 z-10 w-full md:w-auto justify-center md:justify-start md:ml-[-60px] md:mt-10 px-4 md:px-0">
             <button
               onClick={() => setActiveLevel("university")}
               className={`flex-1 md:flex-none px-6 py-3 rounded-lg font-bold text-[14px] sm:text-lg transition-all duration-300 border-l-4 whitespace-nowrap

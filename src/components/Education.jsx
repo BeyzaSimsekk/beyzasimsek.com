@@ -15,20 +15,19 @@ const Education = () => {
   return (
     <>
       {/* TITLE */}
-      <div className="max-w-7xl mx-auto w-full px-0 xl:px-2 text-left">
+      <div className="max-w-7xl mx-auto w-full px-0 xl:px-2">
         <motion.div
           variants={textVariant()}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          layout="position"
         >
           <p className={styles.sectionSubText}>My School</p>
           <h2 className={styles.sectionHeadText}>Education.</h2>
         </motion.div>
       </div>
       {/* Ana Container */}
-      <div className="sm:mt-8 mt-0 flex flex-col xl:flex-row items-start justify-start gap-8 w-full">
+      <div className="sm:mt-8 mt-0 flex flex-col xl:flex-row items-start justify-center gap-8 w-full">
         {/* SOL: Asansör ve Buton Grubu */}
         <div className="flex flex-col md:flex-row items-start flex-[1.2] w-full relative">
           {/* 3D Canvas */}

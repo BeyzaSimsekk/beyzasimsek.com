@@ -51,7 +51,11 @@ const ComputersCanvas = () => {
       frameloop="demand"
       shadows
       camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{
+        preserveDrawingBuffer: true,
+        antialias: false, // Performans için
+        powerPreference: "high-performance", // GPU önceliği
+      }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
@@ -66,5 +70,7 @@ const ComputersCanvas = () => {
     </Canvas>
   );
 };
+
+useGLTF.preload("./desktop_pc/scene.gltf");
 
 export default ComputersCanvas;

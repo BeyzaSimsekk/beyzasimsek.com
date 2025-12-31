@@ -15,7 +15,7 @@ const Education = () => {
   return (
     <>
       {/* TITLE */}
-      <div className="max-w-7xl mx-auto w-full px-0 xl:px-2">
+      <div className="max-w-7xl mx-auto w-full px-0 sm:px-0 xl:px-2">
         <motion.div
           variants={textVariant()}
           initial="hidden"

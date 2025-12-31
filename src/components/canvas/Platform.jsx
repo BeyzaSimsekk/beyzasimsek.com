@@ -86,11 +86,17 @@ const PlatformCanvas = ({ currentLevel }) => {
 
     handleResize();
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
+    };
   }, []);
 
   return (
     <Canvas
+      key={isMobile ? "mobile" : "desktop"}
       shadows
       frameloop="always"
       dpr={[1, 2]}

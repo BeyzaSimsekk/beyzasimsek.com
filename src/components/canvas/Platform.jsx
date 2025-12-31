@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   ContactShadows,
   Environment,
@@ -11,11 +11,34 @@ import * as THREE from "three";
 
 import CanvasLoader from "../Loader";
 
+// --- 1. KAMERA KONTROL BİLEŞENİ (YENİ) ---
+// Bu bileşen Canvas'ın içinde durur ve ekran boyutu değişince kamerayı hareket ettirir.
+const CameraRig = ({ isMobile, isExtraSmall }) => {
+  const { camera } = useThree();
+
+  // Hedef Z pozisyonunu belirle
+  const targetZ = isExtraSmall ? 11 : isMobile ? 10 : 9;
+
+  useFrame((state, delta) => {
+    camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetZ, 0.1);
+  });
+
+  return null; // Görünür bir şey render etmez
+};
+
 const Elevator = ({ currentLevel, isMobile, isExtraSmall }) => {
   const elevator = useGLTF("./sci_fi_elevator/scene.gltf");
   const meshRef = useRef();
 
-  const targetY = currentLevel === "university" ? 0.6 : -1;
+  let targetY = 0;
+
+  if (currentLevel === "university") {
+    // Üniversite katı: Mobilde biraz daha aşağıda dursun ki yazıya yer kalsın
+    targetY = isMobile ? 0.3 : 0.8;
+  } else {
+    // Lise katı: Mobilde ve Desktopta aşağı iniş mesafesi
+    targetY = isMobile ? -1.0 : -1.5;
+  }
 
   useFrame((state, delta) => {
     if (meshRef.current) {
@@ -31,6 +54,7 @@ const Elevator = ({ currentLevel, isMobile, isExtraSmall }) => {
     }
   });
 
+  // Ölçeklendirme ayarı
   const scale = isExtraSmall ? 0.35 : isMobile ? 0.45 : 0.4;
 
   return (
@@ -53,26 +77,24 @@ const Elevator = ({ currentLevel, isMobile, isExtraSmall }) => {
 };
 
 const PlatformCanvas = ({ currentLevel }) => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isExtraSmall, setIsExtraSmall] = useState(false);
+  // Başlangıç değerlerini güvenli belirleyelim
+  const [screenSize, setScreenSize] = useState({
+    isMobile: false,
+    isExtraSmall: false,
+  });
 
   useEffect(() => {
-    const smallQuery = window.matchMedia("(max-width: 450px)");
-    const mobileQuery = window.matchMedia("(max-width: 640px)");
-
-    setIsExtraSmall(smallQuery.matches);
-    setIsMobile(mobileQuery.matches);
-
-    const handleSmallChange = (e) => setIsExtraSmall(e.matches);
-    const handleMobileChange = (e) => setIsMobile(e.matches);
-
-    smallQuery.addEventListener("change", handleSmallChange);
-    mobileQuery.addEventListener("change", handleMobileChange);
-
-    return () => {
-      smallQuery.removeEventListener("change", handleSmallChange);
-      mobileQuery.removeEventListener("change", handleMobileChange);
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setScreenSize({
+        isMobile: width < 768,
+        isExtraSmall: width < 450,
+      });
     };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -80,7 +102,7 @@ const PlatformCanvas = ({ currentLevel }) => {
       shadows
       frameloop="always"
       dpr={[1, 2]}
-      camera={{ position: [0, 1.5, isExtraSmall ? 10 : 9], fov: 45 }}
+      camera={{ position: [0, 1.5, 9], fov: 45 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
@@ -90,10 +112,17 @@ const PlatformCanvas = ({ currentLevel }) => {
           minPolarAngle={Math.PI / 2.5}
           target={[0, 0, 0]}
         />
+
+        {/* Kamerayı yöneten görünmez bileşen */}
+        <CameraRig
+          isMobile={screenSize.isMobile}
+          isExtraSmall={screenSize.isExtraSmall}
+        />
+
         <Elevator
           currentLevel={currentLevel}
-          isMobile={isMobile}
-          isExtraSmall={isExtraSmall}
+          isMobile={screenSize.isMobile}
+          isExtraSmall={screenSize.isExtraSmall}
         />
       </Suspense>
 

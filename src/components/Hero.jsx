@@ -23,6 +23,7 @@ const Hero = () => {
   const comp = useRef(null);
   const titleRef = useRef(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const sliderRef = useRef(null);
 
   // Splash ekranı kapatma (Örn: 2 saniye sonra veya Canvas hazır olduğunda)
   useEffect(() => {
@@ -47,7 +48,16 @@ const Hero = () => {
             stagger: 0.02,
           }
         );
+
+        //GSAP İLE KAYAN YAZI
+        gsap.to(sliderRef.current, {
+          xPercent: -50, // Metnin yarısı kadar kaydır
+          repeat: -1, // Sonsuz döngü
+          duration: 60, // Metnin hızı
+          ease: "none", // Takılmasız lineer akış
+        });
       }, comp);
+
       return () => ctx.revert();
     }
   }, [loading]); // Sadece loading bittiğinde animasyon başlar
@@ -115,6 +125,19 @@ const Hero = () => {
         }`}
         ref={comp}
       >
+        {/* GSAP Slider Container */}
+        <div className="hidden xl:block absolute top-[65%] left-0 w-full z-0 pointer-events-none select-none opacity-[0.05] overflow-hidden">
+          <div
+            ref={sliderRef}
+            className="flex flex-row whitespace-nowrap w-max" // w-max: Metnin genişliği neyse o kadar yer kapla (kısıtlama)
+          >
+            {/* Metni yan yana 2 kez koyuyoruz */}
+            <div className="flex flex-row items-center gap-10 sm:gap-20 text-white text-[120px] sm:text-[180px] font-black uppercase">
+              <span>Junior Web Developer • Frontend • Backend • UI/UX •</span>
+              <span>Junior Web Developer • Frontend • Backend • UI/UX •</span>
+            </div>
+          </div>
+        </div>
         <div
           className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
         >
@@ -142,9 +165,14 @@ const Hero = () => {
               </div>
             </h1>
             <p className={`${styles.heroSubText} text-white-100 mb-10`}>
-              Versatile Full-stack Developer with a passion for frontend
-              excellence, <br className="sm:block hidden" /> specializing in
-              developing high-performance web and mobile applications.
+              Versatile{" "}
+              <span className="text-[#b192ff] transition-all duration-300 [text-shadow:0_0_10px_#915eff,0_0_20px_#915eff,0_0_30px_#915eff]">
+                {" "}
+                Full-stack Developer{" "}
+              </span>{" "}
+              with a passion for frontend excellence,{" "}
+              <br className="sm:block hidden" /> specializing in developing
+              high-performance web and mobile applications.
             </p>
           </div>
         </div>
@@ -153,7 +181,7 @@ const Hero = () => {
         {/* Scroll Down Arrow */}
         <div className="absolute bottom-8 right-8 sm:bottom-4 sm:right-10 md:bottom-4 md:right-12 lg:bottom-2 lg:right-1/2 lg:translate-x-1/2 z-15">
           <a href="#about">
-            <div className="w-[35px] h-16 rounded-3xl border-4 border-secondary flex justify-center items-start p-2 hover:border-white transition-colors">
+            <div className="w-[35px] h-16 rounded-3xl border-4 border-secondary flex justify-center items-start p-2 transition-all duration-300 hover:border-white hover:[box-shadow:0_0_10px_#fff,0_0_10px_#d8b4fe,0_0_10px_#915eff]">
               <motion.div
                 animate={{ y: [0, 24, 0] }}
                 transition={{
@@ -161,7 +189,7 @@ const Hero = () => {
                   repeat: Infinity,
                   repeatType: "loop",
                 }}
-                className="w-3 h-3 rounded-full bg-secondary mb-1"
+                className="w-3 h-3 rounded-full bg-secondary mb-1 "
               />
             </div>
           </a>

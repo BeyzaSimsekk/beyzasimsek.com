@@ -22,14 +22,18 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img
-            src={logo}
-            alt="logo"
-            className="w-18 h-18  object-contain hover:scale-108 transition transform duration-500 sm:w-13 sm:h-13"
-          />
-          <p className="text-white text-[18px] font-bold cursor-pointer flex">
-            <span className="hover:text-[#4da6c9]">Beyza Simsek </span>
-          </p>
+          <div className="flex flex-row justify-center items-center gap-1 sm:gap-4 hover:scale-105 transition transform duration-500">
+            <img
+              src={logo}
+              alt="logo"
+              className="w-18 h-18  object-contain  sm:w-13 sm:h-13"
+            />
+            <p className="text-white text-[18px] font-bold cursor-pointer flex">
+              <span className="text-white transition-all duration-300 [text-shadow:0_0_7px_#915eff,0_0_15px_#915eff] hover:[text-shadow:0_0_10px_#915eff,0_0_20px_#915eff,0_0_30px_#915eff]">
+                Beyza Simsek{" "}
+              </span>
+            </p>
+          </div>
         </Link>
         {/* Desktop Menu */}
         <ul className="list-none hidden sm:flex flex-row gap-10">

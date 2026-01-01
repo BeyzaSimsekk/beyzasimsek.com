@@ -25,12 +25,7 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.1 }}
-    >
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
         options={{
           max: 45,
@@ -88,7 +83,12 @@ const ProjectCard = ({
 const Works = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div
+        variants={textVariant()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         <p className={styles.sectionSubText}>My Work</p>
         <h2 className={styles.sectionHeadText}>Projects.</h2>
       </motion.div>
@@ -111,11 +111,16 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-16 flex flex-wrap gap-7">
+      <motion.div
+        className="mt-16 flex flex-wrap gap-7"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.1 }}
+      >
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };

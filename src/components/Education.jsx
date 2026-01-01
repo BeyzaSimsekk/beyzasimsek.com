@@ -13,8 +13,12 @@ const Education = () => {
   return (
     <div className="flex flex-col w-full">
       {/* BAŞLIK KISMI */}
-      {/* SectionWrapper zaten padding ve width verdiği için ekstra div'e gerek yok */}
-      <motion.div variants={textVariant()}>
+      <motion.div
+        variants={textVariant()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         <p className={styles.sectionSubText}>My Academic Career</p>
         <h2 className={styles.sectionHeadText}>Education.</h2>
       </motion.div>

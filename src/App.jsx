@@ -20,7 +20,7 @@ const App = () => {
           <Navbar />
           <Hero />
         </div>
-        <div className="flex flex-col items-center">
+        <div className="relative z-0">
           <About />
           <Tech />
           <Works />

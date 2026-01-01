@@ -88,19 +88,12 @@ const ProjectCard = ({
 const Works = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto w-full px-0 xl:px-4">
-        <motion.div
-          variants={textVariant()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-        >
-          <p className={styles.sectionSubText}>My Work</p>
-          <h2 className={styles.sectionHeadText}>Projects.</h2>
-        </motion.div>
-      </div>
+      <motion.div variants={textVariant()}>
+        <p className={styles.sectionSubText}>My Work</p>
+        <h2 className={styles.sectionHeadText}>Projects.</h2>
+      </motion.div>
 
-      <div className="w-full flex px-0 xl:px-4">
+      <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           initial="hidden"
@@ -118,7 +111,7 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-16 flex flex-wrap gap-7 px-0 xl:px-4">
+      <div className="mt-16 flex flex-wrap gap-7">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}

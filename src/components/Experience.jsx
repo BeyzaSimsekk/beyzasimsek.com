@@ -53,18 +53,15 @@ const ExperienceCard = ({ experience }) => (
 const Experience = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto w-full px-0 xl:px-4">
-        <motion.div
-          variants={textVariant()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-        >
-          <p className={styles.sectionSubText}>What I have done so far</p>
-          <h2 className={styles.sectionHeadText}>Experience.</h2>
-        </motion.div>
-      </div>
-
+      <motion.div
+        variants={textVariant()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
+        <p className={styles.sectionSubText}>What I have done so far</p>
+        <h2 className={styles.sectionHeadText}>Experience.</h2>
+      </motion.div>
       <div className="mt-10 flex flex-col">
         <VerticalTimeline>
           {experiences.map((experience, index) => (

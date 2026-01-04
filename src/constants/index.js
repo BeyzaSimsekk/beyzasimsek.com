@@ -390,17 +390,17 @@ const socialLinks = [
   },
   {
     name: "Linkedin",
-    url: "https://linkedin.com/in/beyzasimsek",
+    url: "https://www.linkedin.com/in/ummu-beyza-simsek/",
     icon: linkedin, 
   },
   {
     name: "Medium",
-    url: "https://medium.com/@beyzasimsek", 
+    url: "https://medium.com/@beyza.simsek", 
     icon: medium, 
   },
   {
     name: "Youtube",
-    url: "https://youtube.com/@kanaladin", 
+    url: "https://www.youtube.com/@totorodiaries", 
     icon: youtube,
   },
 ];

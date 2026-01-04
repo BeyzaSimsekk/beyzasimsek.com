@@ -38,6 +38,10 @@ import Foodix from "./Foodix.png";
 import kfau from "./kfau.png";
 import mal from "./mal.png";
 
+import linkedin from "./linkedin.png";
+import medium from "./medium.png";
+import youtube from "./youtube.png";
+
 //import threejs from "./tech/threejs.svg";
 
 export {
@@ -75,5 +79,8 @@ export {
   Molix,
   Foodix,
   kfau,
-  mal
+  mal,
+  linkedin,
+  medium,
+  youtube,
 };

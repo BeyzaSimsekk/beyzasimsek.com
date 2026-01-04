@@ -11,6 +11,7 @@ import {
 } from "react-simple-maps";
 
 import { styles } from "../styles";
+import { socialLinks } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { slideIn, textVariant } from "../utils/motion";
 
@@ -191,11 +192,35 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="bg-fourth py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary 
-                       hover:bg-[#915eff] hover:shadow-[0_0_15px_#915eff] transition-all duration-300"
+              className="bg-fourth py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md hover:bg-[#915eff] hover:shadow-[0_0_15px_#915eff] transition-all duration-300"
             >
               {loading ? "Sending..." : "Send"}
             </button>
+            {/* SOSYAL MEDYA İKONLARI */}
+            <div className="mt-3 pt-5 border-t border-white/10 flex flex-col items-center md:items-start gap-4">
+              <p className="text-[#915eff] text-[14px] font-medium uppercase tracking-wider text-shadow-[0_0_15px_#915eff]">
+                Connect with me
+              </p>
+              <div className="flex gap-5">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-tertiary flex justify-center items-center 
+                   hover:bg-[#915eff] hover:shadow-[0_0_15px_#915eff] transition-all duration-300 group"
+                  >
+                    {/* Eğer icon bir resim yoluysa (img), değilse icon bileşenini render et */}
+                    <img
+                      src={link.icon}
+                      alt={link.name}
+                      className="w-6 h-6 object-contain group-hover:scale-110 transition-transform"
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
           </form>
         </motion.div>
 
@@ -263,13 +288,13 @@ const Contact = () => {
                           <Geography
                             key={geo.rsmKey}
                             geography={geo}
-                            fill="#7c4ce6"
+                            fill="#5c35b5"
                             stroke="#fff"
                             strokeWidth={0.5}
                             style={{
                               default: { outline: "none" },
                               hover: {
-                                fill: "#5c35b5",
+                                fill: "#7c4ce6",
                                 outline: "none",
                               },
                             }}

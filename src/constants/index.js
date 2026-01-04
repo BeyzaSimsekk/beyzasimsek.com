@@ -30,7 +30,10 @@ import {
   Molix,
   Foodix,
   kfau,
-  mal
+  mal,
+  linkedin,
+  medium,
+  youtube,
 } from "../assets";
 
 export const navLinks = [
@@ -379,4 +382,27 @@ const educations = [
   },
 ];
 
-export { services, technologies, experiences, projects, educations };
+const socialLinks = [
+  {
+    name: "Github",
+    url: "https://github.com/BeyzaSimsekk",
+    icon: github,
+  },
+  {
+    name: "Linkedin",
+    url: "https://linkedin.com/in/beyzasimsek",
+    icon: linkedin, 
+  },
+  {
+    name: "Medium",
+    url: "https://medium.com/@beyzasimsek", 
+    icon: medium, 
+  },
+  {
+    name: "Youtube",
+    url: "https://youtube.com/@kanaladin", 
+    icon: youtube,
+  },
+];
+
+export { services, technologies, experiences, projects, educations, socialLinks };

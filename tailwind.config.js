@@ -17,6 +17,7 @@ export default {
       },
       boxShadow: {
         card: "0px 35px 120px -15px #211e35",
+        card_bottom: "0px 25px 50px -12px rgba(0, 0, 0, 0.5)"
       },
       screens: {
         xs: "450px",

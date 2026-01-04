@@ -203,18 +203,18 @@ const Contact = () => {
             <ComposableMap
               projection="geoMercator"
               projectionConfig={{
-                scale: 2200, // Zoom seviyesi
+                scale: 2000, // Zoom seviyesi
                 center: [35, 39], // Türkiye Merkezi
               }}
               className="w-full h-full"
             >
-              {/* 🔒 FIX: disablePanning ve disableZooming'e ek olarak
-                  filterZoomEvent ile mouse tekerleği tamamen engellendi.
-              */}
               <ZoomableGroup
-                disablePanning
-                disableZooming
+                center={[35, 39]}
+                minZoom={1}
+                maxZoom={1}
                 filterZoomEvent={() => false}
+                onMoveStart={() => false}
+                onMoveEnd={() => false}
               >
                 {/* 1. KATMAN: DÜNYA (Türkiye Hariç) */}
                 <Geographies geography={geoUrl}>

@@ -137,9 +137,7 @@ const Contact = () => {
         (error) => {
           console.error("FAILED...", error);
           setLoading(false);
-          toast.error(
-            `Something went wrong: ${error.text || "Please try again"}`
-          );
+          toast.error(`Something went wrong. Please try again`);
         }
       );
   };
@@ -147,7 +145,36 @@ const Contact = () => {
   return (
     <>
       {/* Toast bildirimleri için konteyner */}
-      <Toaster position="bottom-right" reverseOrder={false} />
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        toastOptions={{
+          // Varsayılan stil ayarları
+          className: "",
+          style: {
+            border: "1px solid #915eff",
+            padding: "16px",
+            color: "#fff",
+            background: "#100d25",
+          },
+          // Başarı mesajı için özel ayarlar
+          success: {
+            duration: 4000,
+            iconTheme: {
+              primary: "#915eff",
+              secondary: "#fff",
+            },
+          },
+          // Hata mesajı için özel ayarlar
+          error: {
+            duration: 3000,
+            style: {
+              border: "1px solid #ff4b4b",
+            },
+          },
+        }}
+      />
+      {/* BAŞLIK KISMI */}
       <motion.div
         variants={textVariant()}
         initial="hidden"
@@ -182,7 +209,7 @@ const Contact = () => {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="mt-6 flex flex-col gap-6"
+            className="mt-6 flex flex-col gap-4"
           >
             {/* NAME INPUT */}
             <label className="flex flex-col group">
@@ -195,7 +222,7 @@ const Contact = () => {
                 value={form.name}
                 onChange={handleChange}
                 placeholder="What's your name?"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none 
+                className="bg-tertiary py-3 px-6 placeholder:text-secondary text-white rounded-lg outline-none 
                          border-2 border-transparent focus:border-[#915eff] focus:shadow-[0_0_10px_#915eff] 
                          transition-all duration-300 font-medium"
               />
@@ -212,7 +239,7 @@ const Contact = () => {
                 value={form.email}
                 onChange={handleChange}
                 placeholder="What's your email address?"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none 
+                className="bg-tertiary py-3 px-6 placeholder:text-secondary text-white rounded-lg outline-none 
                          border-2 border-transparent focus:border-[#915eff] focus:shadow-[0_0_10px_#915eff] 
                          transition-all duration-300 font-medium"
               />
@@ -229,7 +256,7 @@ const Contact = () => {
                 value={form.message}
                 onChange={handleChange}
                 placeholder="What you want to say?"
-                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none 
+                className="bg-tertiary py-3 px-6 placeholder:text-secondary text-white rounded-lg outline-none 
                          border-2 border-transparent focus:border-[#915eff] focus:shadow-[0_0_10px_#915eff] 
                          transition-all duration-300 font-medium resize-none"
               />

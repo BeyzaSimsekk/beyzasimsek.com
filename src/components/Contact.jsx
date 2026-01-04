@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
+import confetti from "canvas-confetti";
 import {
   ComposableMap,
   Geographies,
@@ -81,28 +83,71 @@ const Contact = () => {
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
 
-    setForm({
-      ...form,
-      [name]: value,
+  // Başarı durumunda konfeti patlatan fonksiyon
+  const handleConfetti = () => {
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ["#915eff", "#d462fe", "#ffffff"],
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!form.name || !form.email || !form.message) {
+      toast.error("Please fill in all fields!");
+      return;
+    }
+
     setLoading(true);
-    // Email.js kodlarınızı buraya entegre edebilirsiniz.
-    setTimeout(() => {
-      setLoading(false);
-      alert("Thank you! I will get back to you as soon as possible.");
-      setForm({ name: "", email: "", message: "" });
-    }, 1000);
+
+    // EmailJS parametreleri
+    const templateParams = {
+      from_name: form.name,
+      to_name: "Beyza",
+      from_email: form.email,
+      to_email: "u.beyza.simsek@gmail.com",
+      message: form.message,
+    };
+
+    // EmailJS ile e-posta gönderimi
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setLoading(false);
+          toast.success(
+            "Thank you! I will get back to you as soon as possible! 🚀✨"
+          );
+          handleConfetti();
+          setForm({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          setLoading(false);
+          toast.error(
+            `Something went wrong: ${error.text || "Please try again"}`
+          );
+        }
+      );
   };
 
   return (
     <>
+      {/* Toast bildirimleri için konteyner */}
+      <Toaster position="bottom-right" reverseOrder={false} />
       <motion.div
         variants={textVariant()}
         initial="hidden"
@@ -115,7 +160,7 @@ const Contact = () => {
 
       <div
         ref={containerRef}
-        className="xl:mt-5 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden"
+        className="xl:mt-5 mt-4 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden"
       >
         {/* SVG ANİMASYONU */}
         <AnimatePresence>
@@ -192,6 +237,7 @@ const Contact = () => {
 
             <button
               type="submit"
+              disabled={loading}
               className="bg-fourth py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md hover:bg-[#915eff] hover:shadow-[0_0_15px_#915eff] transition-all duration-300"
             >
               {loading ? "Sending..." : "Send"}
@@ -271,7 +317,7 @@ const Contact = () => {
                   }
                 </Geographies>
 
-                {/* 2. KATMAN: TÜRKİYE (İller - Çalışan GeoJSON) */}
+                {/* 2. KATMAN: TÜRKİYE */}
                 <Geographies geography={geoUrl}>
                   {({ geographies }) =>
                     geographies.map((geo) => {
@@ -326,7 +372,7 @@ const Contact = () => {
                     textAnchor="end"
                     alignmentBaseline="middle"
                     fill="white"
-                    fontSize={14}
+                    fontSize={16}
                     fontWeight="bold"
                   >
                     Konya

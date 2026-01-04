@@ -116,7 +116,7 @@ const Contact = () => {
             )}
           </div>
         )}
-        {/* FORM ALANI
+        {/* FORM ALANI -- TASARIM OLARAK DEĞİŞEBİLİR--
           introFinished true olana kadar görünmez, true olunca soldan (veya mobilde yukarıdan) kayarak gelir.
       */}
         <motion.div
@@ -124,7 +124,112 @@ const Contact = () => {
           initial="hidden"
           animate={introFinished ? "show" : "hidden"} // Eğer intro bittiyse 'show',değilse 'hidden'
           className="flex-[0.75] bg-black-100 p-8 rounded-2xl z-10"
-        ></motion.div>
+        >
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="mt-12 flex flex-col gap-8"
+          >
+            <label className="flex flex-col">
+              <span className="text-white font-medium mb-4">Your Name</span>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="What's your good name?"
+                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              />
+            </label>
+            <label className="flex flex-col">
+              <span className="text-white font-medium mb-4">Your Email</span>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="What's your web address?"
+                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              />
+            </label>
+            <label className="flex flex-col">
+              <span className="text-white font-medium mb-4">Your Message</span>
+              <textarea
+                rows={7}
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="What you want to say?"
+                className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium resize-none"
+              />
+            </label>
+
+            <button
+              type="submit"
+              className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary hover:bg-[#915eff] transition-colors"
+            >
+              {loading ? "Sending..." : "Send"}
+            </button>
+          </form>
+        </motion.div>
+
+        {/* HARİTA ALANI
+          introFinished true olunca sağdan (veya mobilde aşağıdan) kayarak gelir.
+      */}
+        <motion.div
+          variants={slideIn("right", "tween", 0.2, 1)}
+          initial="hidden"
+          animate={introFinished ? "show" : "hidden"}
+          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] z-10 relative"
+        >
+          <div className="w-full h-full rounded-2xl overflow-hidden bg-tertiary/30 border border-white/5">
+            <ComposableMap
+              projection="geoMercator"
+              projectionConfig={{
+                scale: 2000, // Zoom seviyesi (Türkiye'ye odaklanmak için artırdık)
+                center: [35, 39], // Türkiye'nin koordinatları
+              }}
+              className="w-full h-full"
+            >
+              <ZoomableGroup>
+                <Geographies geography={geoUrl}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => {
+                      // Türkiye'yi ayırt etmek için kontrol
+                      const isTurkey = geo.properties.name === "Turkey";
+                      return (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill={isTurkey ? "#915eff" : "#2f314d"} // Türkiye Mor, diğerleri koyu gri
+                          stroke="#181926"
+                          strokeWidth={0.5}
+                          style={{
+                            default: { outline: "none" },
+                            hover: {
+                              fill: isTurkey ? "#915eff" : "#4a4e69",
+                              outline: "none",
+                            },
+                            pressed: { outline: "none" },
+                          }}
+                        />
+                      );
+                    })
+                  }
+                </Geographies>
+              </ZoomableGroup>
+            </ComposableMap>
+
+            {/* Küçük bir lokasyon pini animasyonu */}
+            <motion.div
+              className="absolute top-1/2 left-1/2 w-4 h-4 bg-[#915eff] rounded-full shadow-[0_0_20px_#915eff]"
+              initial={{ scale: 0 }}
+              animate={{ scale: [1, 1.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{ marginLeft: "-2px", marginTop: "-2px" }} // Tam merkeze küçük ayar
+            />
+          </div>
+        </motion.div>
       </div>
     </>
   );

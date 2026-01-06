@@ -326,7 +326,7 @@ const experiences = [
   },
   {
     title: "Participant",
-    company_name: "Yetkin Gençler",
+    company_name: "YetGen",
     icon: yetgen,
     iconBg: "#E6DEDD",
     date: "August 2023 - November 2023",

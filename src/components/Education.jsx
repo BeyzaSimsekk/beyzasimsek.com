@@ -19,12 +19,11 @@ const Education = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <p className={styles.sectionSubText}>My Academic Career</p>
+        <p className={styles.sectionSubText}>My Academic Background</p>
         <h2 className={styles.sectionHeadText}>Education.</h2>
       </motion.div>
 
       {/* İÇERİK ALANI */}
-      {/* DÜZELTME: max-w-5xl ve mx-auto kaldırıldı. Artık tam genişlikte ve sola hizalı. */}
       <div className="mt-10 flex flex-col w-full">
         {/* 1. BUTONLAR (Tab Menu) */}
         <div className="flex flex-row gap-4 mb-4 w-full justify-center md:justify-start z-10">
@@ -55,8 +54,6 @@ const Education = () => {
 
         {/* 2. BİLGİ PENCERESİ (Card) */}
         <motion.div variants={fadeIn("up", "tween", 0.2, 1)} className="w-full">
-          {/* DÜZELTME: min-h-[500px] ekledik. İçerik değişse de boyutu sabit kalır, zıplamaz. */}
-          {/* h-auto md:min-h-[500px] -> Mobilde otomatik, Masaüstünde en az 500px */}
           <div className="bg-tertiary p-6 sm:p-10 rounded-2xl rounded-tl-none border border-white/10 relative w-full h-auto md:min-h-[350px] flex flex-col shadow-card">
             <AnimatePresence mode="wait">
               <motion.div

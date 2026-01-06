@@ -8,7 +8,7 @@ const styles = {
   heroHeadText:
     "font-bold text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2",
   heroSubText:
-    "text-[#dfd9ff] font-medium lg:text-[25px] sm:text-[20px] xs:text-[19px] text-[16px] lg:leading-[40px]",
+    "text-[#dfd9ff] font-medium xl:text-[25px] lg:text-[21px] sm:text-[19px] xs:text-[18px] text-[16px] lg:leading-[40px]",
   heroSubSubText:
     "text-[#dfd9ff] font-medium lg:text-[19px] sm:text-[20px] xs:text-[19px] text-[16px] lg:leading-[40px]",
 

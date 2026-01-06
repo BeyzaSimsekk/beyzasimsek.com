@@ -8,7 +8,6 @@ import {
   useTexture,
 } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
-
 import CanvasLoader from "../Loader";
 
 const Ball = (props) => {
@@ -18,7 +17,7 @@ const Ball = (props) => {
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
+      <mesh castShadow receiveShadow scale={1.7}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color="#fff"
@@ -41,7 +40,6 @@ const BallCanvas = ({ icon }) => {
   const [showCanvas, setShowCanvas] = useState(false);
 
   return (
-    // Boyutu burada zorunlu kılıyoruz ki Canvas küçülmesin
     <div className="w-28 h-28 relative flex items-center justify-center">
       <AnimatePresence mode="wait">
         {!showCanvas ? (
@@ -49,7 +47,7 @@ const BallCanvas = ({ icon }) => {
             key="icon"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.5, opacity: 0 }}
+            exit={{ scale: 0.8, opacity: 0 }}
             whileHover={{ scale: 1.1 }}
             onClick={() => setShowCanvas(true)}
             className="w-full h-full bg-fourth rounded-full flex items-center justify-center border-2 border-[#915eff]/20 shadow-card cursor-pointer"
@@ -63,30 +61,29 @@ const BallCanvas = ({ icon }) => {
         ) : (
           <motion.div
             key="canvas"
-            initial={{ scale: 0.5, opacity: 0 }}
+            initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.5, opacity: 0 }}
-            className="w-full h-full relative"
+            exit={{ scale: 0.8, opacity: 0 }}
+            className="w-full h-full relative overflow-visible"
           >
-            {/* Kapatma Butonu - Artık sağ üstte sabit ve şık */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setShowCanvas(false);
               }}
-              className="absolute -top-1 -right-1 bg-red-500 hover:bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center z-100 shadow-lg transition-colors border-2 border-primary"
+              className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center z-110 shadow-lg transition-colors border-2 border-primary"
             >
               <span className="text-[12px] font-bold">✕</span>
             </button>
 
             <Canvas
               gl={{ preserveDrawingBuffer: true, powerPreference: "low-power" }}
+              camera={{ position: [0, 0, 5], fov: 45 }}
               dpr={[1, 2]}
-              // Canvas'ın konteyneri tam doldurması için
-              className="w-full h-full"
+              style={{ width: "112px", height: "112px" }} // w-28 karşılığı sabit px
             >
               <Suspense fallback={<CanvasLoader />}>
-                <OrbitControls enableZoom={false} />
+                <OrbitControls enableZoom={false} enablePan={false} />
                 <Ball imgUrl={icon} />
               </Suspense>
               <Preload all />

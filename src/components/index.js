@@ -7,6 +7,7 @@ import Experience from './Experience';
 import Works from './Works';
 import Contact from './Contact';
 import Education from './Education';
+import SplashScreen from './SplashScreen';
 
 export {
   Hero,
@@ -19,4 +20,5 @@ export {
   Contact, 
   BallCanvas, 
   ComputersCanvas, 
+  SplashScreen
 }

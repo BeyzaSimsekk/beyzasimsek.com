@@ -154,7 +154,7 @@ export const translations = {
             uiuxcard: "UI/UX Tasarımcısı",
         },
         tech: {
-            subtitle:"Etkileşimli Teknolojiler",
+            subtitle:"Teknolojİlerle Etkİleşİm",
             heading:"Teknolojiler.",
             info:"3D ortamda etkileşim için ikonlara tıklayın",
         },

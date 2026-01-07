@@ -72,7 +72,6 @@ const Navbar = () => {
               } hover:text-white transition text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.id)}
             >
-              {/* link.id'yi t() içine vererek çeviriyoruz: nav.about, nav.project vb. */}
               <a href={`#${link.id}`}>{t(`nav.${link.id}`)}</a>
             </li>
           ))}
@@ -116,7 +115,7 @@ const Navbar = () => {
                         setActive(link.title);
                       }}
                     >
-                      <a href={`#${link.id}`}>{link.title}</a>
+                      <a href={`#${link.id}`}>{t(`nav.${link.id}`)}</a>
                     </motion.li>
                   ))}
                 </ul>

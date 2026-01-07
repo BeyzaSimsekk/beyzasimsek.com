@@ -134,7 +134,7 @@ export const translations = {
         nav: {
             name:"Beyza Şimşek",
             about:"Hakkımda",
-            project:"Projeler",
+            project:"Proje",
             work:"Deneyim",
             contact:"İletişim",
         },

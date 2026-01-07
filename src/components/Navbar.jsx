@@ -68,11 +68,12 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`${
-                active === link.title ? "text-white" : "text-secondary"
-              } hover:text-white hover:scale-105 transition transform ease-in-out text-[17px] lg:text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(link.title)}
+                active === link.id ? "text-white" : "text-secondary"
+              } hover:text-white transition text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive(link.id)}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              {/* link.id'yi t() içine vererek çeviriyoruz: nav.about, nav.project vb. */}
+              <a href={`#${link.id}`}>{t(`nav.${link.id}`)}</a>
             </li>
           ))}
           <div className="hidden sm:block">

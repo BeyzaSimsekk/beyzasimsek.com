@@ -13,15 +13,11 @@ const Education = () => {
 
   const { t } = useTranslation();
 
-  // translations.js yapına göre anahtarları oluşturuyoruz
-  const titleKey = `education.${educations[0].id}_title`;
-  const nameKey = `education.${educations[0].id}_name`;
-  const departmentKey = `education.${educations[0].id}_department`;
-  const dateKey = `education.${educations[0].id}_date`;
-  const pointsKey = `education.${educations[0].id}_points`;
-
-  // returnObjects: true -> Bize string değil, array (dizi) dönmesini sağlar
-  const points = t(pointsKey, { returnObjects: true });
+  const schoolName = t(`education.${activeLevel}_name`);
+  const title = t(`education.${activeLevel}_title`);
+  const department = t(`education.${activeLevel}_department`);
+  const date = t(`education.${activeLevel}_date`);
+  const points = t(`education.${activeLevel}_points`, { returnObjects: true });
 
   return (
     <div className="flex flex-col w-full">

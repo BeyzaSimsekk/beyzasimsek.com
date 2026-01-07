@@ -11,7 +11,8 @@ export const translations = {
             title:"Hi, I'm",
             sub_before: "Versatile",
             sub_highlight: "Full-stack Developer",
-            sub_after: "with a passion for frontend excellence, specializing in developing high-performance web and mobile applications.",
+            sub_after_line1: "with a passion for frontend excellence,",
+            sub_after_line2: "specializing in developing high-performance web and mobile applications."
         },
         about: {
             intro:"Introduction",
@@ -139,10 +140,11 @@ export const translations = {
             contact:"İletişim",
         },
         hero: {
-            title:"Selam, Ben",
+            title:"Ben",
             sub_before: "Çok yönlü bir",
             sub_highlight: "Full-stack Geliştirici",
-            sub_after: "olarak; frontend odaklı, yüksek performanslı web ve mobil uygulamalar geliştiriyorum.",
+            sub_after_line1: "olarak; frontend odaklı,",
+            sub_after_line2: "yüksek performanslı web ve mobil uygulamalar geliştiriyorum."
         },
         about: {
             intro:"GİRİŞ",

@@ -141,9 +141,8 @@ const Hero = () => {
               {" "}
               {t("hero.sub_highlight")}{" "}
             </span>{" "}
-            with a passion for frontend excellence,{" "}
-            <br className="sm:block hidden" /> specializing in developing
-            high-performance web and mobile applications.
+            {t("hero.sub_after_line1")} <br className="sm:block hidden" />{" "}
+            {t("hero.sub_after_line2")}
           </p>
         </div>
       </div>

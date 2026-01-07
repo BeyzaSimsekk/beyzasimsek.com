@@ -246,7 +246,7 @@ export const translations = {
             ],
         },
         contact: {
-            intro:"İletişime geçin",
+            intro:"İletİşİme geçİn",
             overview:"İletişim.",
             form_label_name:"Adınız",
             form_placeholder_name:"Adınız nedir?",
@@ -258,7 +258,7 @@ export const translations = {
             form_button_sending:"Gönderiliyor...",
             social_title:"Benimle bağlantı kurun"
         },
-        contact_success_message: "Mesajınız başarıyla gönderildi! En kısa sürede size döneceğim.",
-        contact_error_message: "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+        contact_success_message: "Teşekkürler! En kısa sürede size döneceğim.✨",
+        contact_error_message: "Bir şeyler ters gitti :( Lütfen tekrar deneyin."
     },
 }

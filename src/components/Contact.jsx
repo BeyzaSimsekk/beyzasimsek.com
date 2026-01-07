@@ -16,6 +16,7 @@ import { styles } from "../styles";
 import { socialLinks } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { slideIn, textVariant } from "../utils/motion";
+import { useTranslation } from "react-i18next";
 
 // --- VERİLER ---
 // Dünya haritası
@@ -69,6 +70,7 @@ const AnimatedLaptopIcon = ({ onAnimationComplete }) => {
 };
 
 const Contact = () => {
+  const { t } = useTranslation();
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -128,16 +130,14 @@ const Contact = () => {
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
           setLoading(false);
-          toast.success(
-            "Thank you! I will get back to you as soon as possible! 🚀✨"
-          );
+          toast.success(`${t("contact_success_message")}`);
           handleConfetti();
           setForm({ name: "", email: "", message: "" });
         },
         (error) => {
           console.error("FAILED...", error);
           setLoading(false);
-          toast.error(`Something went wrong. Please try again`);
+          toast.error(`${t("contact_error_message")}`);
         }
       );
   };
@@ -181,8 +181,8 @@ const Contact = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <p className={styles.sectionSubText}>{t("contact.intro")}</p>
+        <h3 className={styles.sectionHeadText}>{t("contact.overview")}</h3>
       </motion.div>
 
       <div
@@ -214,14 +214,14 @@ const Contact = () => {
             {/* NAME INPUT */}
             <label className="flex flex-col group">
               <span className="text-white font-medium mb-4 group-focus-within:text-[#915eff] transition-colors">
-                Your Name
+                {t("contact.form_label_name")}
               </span>
               <input
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="What's your name?"
+                placeholder={`${t("contact.form_placeholder_name")}`}
                 className="bg-tertiary py-3 px-6 placeholder:text-secondary text-white rounded-lg outline-none 
                          border-2 border-transparent focus:border-[#915eff] focus:shadow-[0_0_10px_#915eff] 
                          transition-all duration-300 font-medium"
@@ -231,14 +231,14 @@ const Contact = () => {
             {/* EMAIL INPUT */}
             <label className="flex flex-col group">
               <span className="text-white font-medium mb-4 group-focus-within:text-[#915eff] transition-colors">
-                Your Email
+                {t("contact.form_label_email")}
               </span>
               <input
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="What's your email address?"
+                placeholder={`${t("contact.form_placeholder_email")}`}
                 className="bg-tertiary py-3 px-6 placeholder:text-secondary text-white rounded-lg outline-none 
                          border-2 border-transparent focus:border-[#915eff] focus:shadow-[0_0_10px_#915eff] 
                          transition-all duration-300 font-medium"
@@ -248,14 +248,14 @@ const Contact = () => {
             {/* MESSAGE INPUT */}
             <label className="flex flex-col group">
               <span className="text-white font-medium mb-4 group-focus-within:text-[#915eff] transition-colors">
-                Your Message
+                {t("contact.form_label_message")}
               </span>
               <textarea
                 rows={5}
                 name="message"
                 value={form.message}
                 onChange={handleChange}
-                placeholder="What do you want to say?"
+                placeholder={`${t("contact.form_placeholder_message")}`}
                 className="bg-tertiary py-3 px-6 placeholder:text-secondary text-white rounded-lg outline-none 
                          border-2 border-transparent focus:border-[#915eff] focus:shadow-[0_0_10px_#915eff] 
                          transition-all duration-300 font-medium resize-none"
@@ -267,12 +267,14 @@ const Contact = () => {
               disabled={loading}
               className="bg-fourth py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md hover:bg-[#915eff] hover:shadow-[0_0_15px_#915eff] transition-all duration-300"
             >
-              {loading ? "Sending..." : "Send"}
+              {loading
+                ? `${t("contact.form_button_sending")}`
+                : `${t("contact.form_button")}`}
             </button>
             {/* SOSYAL MEDYA İKONLARI */}
             <div className="mt-3 pt-5 border-t border-white/10 flex flex-col items-center md:items-start gap-4">
               <p className="text-[#915eff] text-[14px] font-medium uppercase tracking-wider text-shadow-[0_0_15px_#915eff]">
-                Connect with me
+                {t("contact.social_title")}
               </p>
               <div className="flex gap-5">
                 {socialLinks.map((link) => (

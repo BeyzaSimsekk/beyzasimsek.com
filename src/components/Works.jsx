@@ -8,6 +8,8 @@ import { SectionWrapper } from "../hoc";
 
 import { fadeIn, textVariant } from "../utils/motion";
 
+import { useTranslation } from "react-i18next";
+
 const tagStyles = {
   "blue-text-gradient": "text-blue-400 border-blue-400 bg-blue-500/10",
   "green-text-gradient": "text-green-400 border-green-400 bg-green-500/10",
@@ -24,6 +26,10 @@ const ProjectCard = ({
   image,
   source_code_link,
 }) => {
+  const { t } = useTranslation();
+
+  // translations.js yapına göre anahtarları oluşturuyoruz
+  const descriptionKey = `works.${projects[index].id}description`;
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
@@ -32,7 +38,7 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[350px] w-full"
+        className="bg-tertiary p-5 rounded-2xl sm:w-[350px] w-full min-h-[540px]"
       >
         {/* Project Image */}
         <div className="relative w-full h-[230px]">
@@ -59,7 +65,7 @@ const ProjectCard = ({
         {/* Project Details */}
         <div className="mt-5 cursor-default">
           <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+          <p className="mt-2 text-secondary text-[14px]">{t(descriptionKey)}</p>
         </div>
 
         {/* Project Tags */}
@@ -81,6 +87,8 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <motion.div
@@ -89,8 +97,8 @@ const Works = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <p className={styles.sectionSubText}>My Work</p>
-        <h2 className={styles.sectionHeadText}>Projects.</h2>
+        <p className={styles.sectionSubText}>{t("works.intro")}</p>
+        <h2 className={styles.sectionHeadText}>{t("works.overview")}</h2>
       </motion.div>
 
       <div className="w-full flex">
@@ -101,13 +109,7 @@ const Works = () => {
           viewport={{ once: true, amount: 0.1 }}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          The following projects highlight my skills and experience through
-          real-world examples. Each project includes a brief description with
-          links to public code repositories, and some also feature live demos.
-          They demonstrate my ability to tackle complex problems, work across
-          diverse technologies, and manage projects effectively, while
-          consistently highlighting my strengths in UI/UX and frontend
-          development.
+          {t("works.description")}
         </motion.p>
       </div>
 

@@ -135,9 +135,8 @@ const technologies = [
 
 const projects = [
   {
+    id: "KFAU",
     name: "KFAU Academy",
-    description:
-      "A collaborative learning platform that centralizes lecture notes, videos, and announcements, enabling university students to share resources easily and enhance academic engagement.",
     tags: [
       {
         name: "react",
@@ -160,9 +159,8 @@ const projects = [
     source_code_link: "https://github.com/KFAU-Academy/KFAUAcademy_GraduationProject",
   },
   {
+    id: "SHOPIX",
     name: "SHOPIX",
-    description:
-      "A fully functional E-Commerce Platform built with React, Node.js (Express), and MongoDB — featuring Stripe payments, an Admin Dashboard, and a modern responsive UI.",
     tags: [
       {
         name: "react",
@@ -189,9 +187,8 @@ const projects = [
     source_code_link: "https://github.com/BeyzaSimsekk/SHOPIX_E-Commerce_App",
   },
   {
+    id: "RESUMAI",
     name: "RESUMAI",
-    description:
-      "An AI-driven Resume Analyzer built with React Router, TailwindCSS, and Puter AI API. Upload your resume, and let the system automatically analyze it for strengths, weaknesses, and job-fit score.",
     tags: [
       {
         name: "react 19",
@@ -214,9 +211,8 @@ const projects = [
     source_code_link: "https://github.com/BeyzaSimsekk/RESUMAI_AI_Resume_Analyzer",
   },
   {
+    id: "BYZAI",
     name: "BYZAI",
-    description:
-      "A ChatGPT-style AI chat application built with React, Vite, and MongoDB, featuring user authentication, persistent chat history, and Google Gemini integration for dynamic AI-driven conversations.",
     tags: [
       {
         name: "react",
@@ -239,9 +235,8 @@ const projects = [
     source_code_link: "https://github.com/BeyzaSimsekk/BYZAI_chatgpt_clone",
   },
   {
+    id: "Molix",
     name: "Molix",
-    description:
-      "A React Native movie discovery app that fetches real-time data from TMDB, featuring latest and trending movies, secure authentication, a personal watchlist, searchable content, and Appwrite-powered metrics to improve recommendations.",
     tags: [
       {
         name: "react native",
@@ -260,9 +255,8 @@ const projects = [
     source_code_link: "https://github.com/BeyzaSimsekk/mobile_movie_app",
   },
   {
+    id: "Foodix",
     name: "Foodix",
-    description:
-      "A React Native food ordering app that pulls real-time menu data from Appwrite, featuring product browsing, filtering and search, secure authentication, a full cart system with price calculation, and a polished, user-friendly UI design.",
     tags: [
       {
         name: "react native",

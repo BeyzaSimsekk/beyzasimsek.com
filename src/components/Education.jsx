@@ -9,9 +9,17 @@ import { useTranslation } from "react-i18next";
 
 const Education = () => {
   const [activeLevel, setActiveLevel] = useState("university");
-  const activeData = educations.find((edu) => edu.id === activeLevel);
-
   const { t } = useTranslation();
+  // Dinamik çeviri
+  const activeData = {
+    id: activeLevel,
+    title: t(`education.${activeLevel}_title`),
+    school_name: t(`education.${activeLevel}_name`),
+    department: t(`education.${activeLevel}_department`),
+    date: t(`education.${activeLevel}_date`),
+    points: t(`education.${activeLevel}_points`, { returnObjects: true }),
+    icon: educations.find((edu) => edu.id === activeLevel)?.icon,
+  };
 
   const schoolName = t(`education.${activeLevel}_name`);
   const title = t(`education.${activeLevel}_title`);

@@ -6,6 +6,7 @@ import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 const LanguageSwitch = () => {
   const { lang, setLang } = useLanguage();
@@ -33,6 +34,7 @@ const LanguageSwitch = () => {
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <nav
@@ -55,7 +57,7 @@ const Navbar = () => {
             />
             <p className="text-white text-[18px] font-bold cursor-pointer flex">
               <span className="text-white transition-all duration-300 [text-shadow:0_0_7px_#915eff,0_0_15px_#915eff] hover:[text-shadow:0_0_10px_#915eff,0_0_20px_#915eff,0_0_30px_#915eff] mr-4">
-                Beyza Simsek{" "}
+                {t("nav.name")}{" "}
               </span>
             </p>
           </div>

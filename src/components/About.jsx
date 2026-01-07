@@ -8,8 +8,12 @@ import { services } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
 import { SectionWrapper } from "../hoc";
+import { useTranslation } from "react-i18next";
 
 const ServiceCard = ({ index, title, icon }) => {
+  const { t } = useTranslation();
+
+  const titleKey = `about.${services[index].id}card`;
   return (
     <Tilt className="xs:w-[250px] w-full">
       <motion.div
@@ -24,9 +28,13 @@ const ServiceCard = ({ index, title, icon }) => {
           }}
           className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
         >
-          <img src={icon} alt={title} className="w-16 h-16 object-contain" />
+          <img
+            src={icon}
+            alt={t(titleKey)}
+            className="w-16 h-16 object-contain"
+          />
           <h3 className="text-white text-[20px] font-bold text-center">
-            {title}
+            {t(titleKey)}
           </h3>
         </div>
       </motion.div>
@@ -35,25 +43,19 @@ const ServiceCard = ({ index, title, icon }) => {
 };
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <p className={styles.sectionSubText}>{t("about.intro")}</p>
+        <h2 className={styles.sectionHeadText}>{t("about.overview")}</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary sm:text-[17px] text-[15px] max-w-3xl leading-[30px]"
       >
-        I'm a clever junior web developer passionate about frontend and
-        full-stack projects, with experience in JavaScript, TypeScript, and the
-        MERN stack. I also explore AI-based computer vision using Python, app
-        development in Java, and systems programming in C#. With a keen eye for
-        design using tools like Figma, I create user-friendly, aesthetic
-        interfaces. Highly responsible and goal-oriented, I thrive on solving
-        problems and bringing innovative ideas to life through code. Let's
-        collaborate on your next creative venture!
+        {t("about.description")}
       </motion.p>
 
       <div className="pt-12 flex flex-wrap gap-10">

@@ -57,19 +57,19 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    id: "web",
     icon: web,
   },
   {
-    title: "React Native Developer",
+    id: "mobile",
     icon: mobile,
   },
   {
-    title: "Frontend Developer",
+    id: "frontend",
     icon: frontend,
   },
   {
-    title: "UI/UX Designer",
+    id: "uiux",
     icon: creator,
   },
 ];
@@ -284,72 +284,29 @@ const projects = [
 
 const experiences = [
   {
-    title: "Finalist | UI/UX Designer",
-    company_name: "Teknofest",
+    id: "Teknofest", 
     icon: teknofest,
     iconBg: "#dfe3f2",
-    date: "January 2024 - September 2024",
-    points: [
-        "Conducted comprehensive user research, competitive analysis, and requirement gathering to define core product needs.",
-        "Designed end-to-end user flows, wireframes, and high-fidelity UI screens aligned with usability principles and brand identity.",
-        "Developed interactive prototypes using industry-standard tools to validate concepts and refine user experience.",
-        "Collaborated closely with software developers, mentors, and teammates to iterate on design decisions and improve product functionality.",
-        "Tested and evaluated user interactions to enhance accessibility, clarity, and overall user satisfaction.",
-        "Presented design rationale, research findings, and final prototypes to the Teknofest jury as part of the finalist evaluation process.",
-    ],
   },
   {
-    title: "Intern",
-    company_name: "Aselsan",
+    id: "Aselsan",
     icon: aselsan,
     iconBg: "#0B2F87",
-    date: "July 2024 - August 2024",
-    points: [
-        "Worked on computer vision pipelines involving YOLO models, post-training quantization workflows, and ONNX-based inference processes.",
-        "Contributed to data preprocessing, calibration dataset preparation, and model validation activities to ensure reliable performance.",
-        "Participated in the integration of optimized AI models into existing software systems, improving efficiency and runtime performance.",
-        "Collaborated with domain experts and engineers within the a-Gelecek Program to analyze requirements, troubleshoot issues, and produce high-quality deliverables.",
-    ],
   },
   {
-    title: "Participant",
-    company_name: "Google Game & App Academy",
+    id: "OUA",
     icon: oua,
     iconBg: "#ffffff",
-    date: "November 2023 - May 2023",
-    points: [
-        "Completed structured training in 2D and 3D game development using Unity, covering gameplay mechanics, asset management, and basic C# scripting.",
-        "Improved project planning and coordination capabilities through Google’s Project Management curriculum, applying agile principles to software development tasks.",
-        "Strengthened entrepreneurial mindset by learning product-market fit, business modeling, and pitching fundamentals tailored to game and app development.",
-        "Collaborated with mentors and peers to design, iterate, and present game concepts, gaining practical experience in both creative and technical workflows.",
-    ],
   },
   {
-    title: "Participant",
-    company_name: "YetGen",
+    id: "Yetgen",
     icon: yetgen,
     iconBg: "#E6DEDD",
-    date: "August 2023 - November 2023",
-    points: [
-        "Completed the 21st Century Awareness Training covering effective presentation techniques, teamwork, Excel-based modeling, and multiple domain literacies including information, media, finance, and health.",
-        "Enhanced problem-solving and critical-thinking capabilities through modules on social innovation and entrepreneurship, including the GirişGen (Idea Marathon) program.",
-        "Strengthened communication and collaboration skills by actively participating in group tasks, workshops, and peer-learning activities.",
-        "Integrated the acquired competencies into academic, professional, and personal workflows, improving adaptability and overall performance.",
-        "Contributed as a writer for YetGen’s Medium publication (Yetkin Yayın) between September 2023 and July 2024, producing content that supports community learning and visibility.",
-    ],
   },
   {
-    title: "Intern Web Developer",
-    company_name: "Konya Organized Industrial Zone",
+    id: "KOS",
     icon: kos,
     iconBg: "#FFFFFF",
-    date: "July 2023 - August 2023",
-    points: [
-        "Developed four web-based mini projects as part of a 20-day internship within the Network and Systems Unit.",
-        "Worked with core web technologies including HTML, CSS, and JavaScript, and implemented simple backend structures to support project functionality.",
-        "Contributed to end-to-end web development workflows such as UI design, styling, data handling, and basic deployment procedures.",
-        "Collaborated with supervising engineers to refine code quality, understand best practices, and strengthen overall web development competencies.",
-    ],
   },
 ];
 

@@ -16,7 +16,7 @@ export const translations = {
         about: {
             intro:"Introduction",
             overview:"Overview.",
-            description:"I'm a clever junior web developer passionate about frontend and full-stack projects, with experience in JavaScript, TypeScript, and the MERN stack. I also explore AI-based computer vision using Python, app development in Java, and systems programming in C#. With a keen eye for design using tools like Figma, I create user-friendly, aesthetic interfaces. Highly responsible and goal-oriented, I thrive on solving problems and bringing innovative ideas to life through code. Let's collaborate on your next creative venture!",
+            description:"I'm a junior web developer passionate about frontend and full-stack projects, with experience in JavaScript, TypeScript, and the MERN stack. I gained introductory experience in AI-based computer vision with Python during an internship, and have basic practical exposure to Android app development with Java and systems programming in C#. With a keen eye for design and tools like Figma, I build user-friendly and visually appealing interfaces.",
             webcard: "Web Developer",
             mobilecard: "React Native Developer",
             frontendcard: "Frontend Developer",
@@ -42,7 +42,8 @@ export const translations = {
             intro:"What I have done so far",
             overview:"Experience.",
             Teknofest_title: "Finalist | UI/UX Designer",
-            Tenofest_date: "January 2024 - September 2024",
+            Teknofest_name: "Teknofest",
+            Teknofest_date: "January 2024 - September 2024",
             Teknofest_points: [
         "Conducted comprehensive user research, competitive analysis, and requirement gathering to define core product needs.",
         "Designed end-to-end user flows, wireframes, and high-fidelity UI screens aligned with usability principles and brand identity.",
@@ -52,6 +53,7 @@ export const translations = {
         "Presented design rationale, research findings, and final prototypes to the Teknofest jury as part of the finalist evaluation process.",
             ],
             Aselsan_title: "Intern",
+            Aselsan_name: "Aselsan",
             Aselsan_date: "July 2024 - August 2024",
             Aselsan_points: [
         "Worked on computer vision pipelines involving YOLO models, post-training quantization workflows, and ONNX-based inference processes.",
@@ -69,6 +71,7 @@ export const translations = {
         "Collaborated with mentors and peers to design, iterate, and present game concepts, gaining practical experience in both creative and technical workflows.",
             ],
             Yetgen_title: "Participant",
+            Yetgen_name: "Yetgen",
             Yetgen_date: "August 2023 - November 2023",
             Yetgen_points: [
         "Completed the 21st Century Awareness Training covering effective presentation techniques, teamwork, Excel-based modeling, and multiple domain literacies including information, media, finance, and health.",
@@ -142,9 +145,9 @@ export const translations = {
             sub_after: "olarak; frontend odaklı, yüksek performanslı web ve mobil uygulamalar geliştiriyorum.",
         },
         about: {
-            intro:"Giriş",
+            intro:"GİRİŞ",
             overview:"Genel Bakış.",
-            description:"Frontend ve full-stack projelere tutkuyla bağlı, JavaScript, TypeScript ve MERN stack konularında deneyimli, yetenekli bir junior web geliştiriciyim. Ayrıca Python ile yapay zeka tabanlı bilgisayarlı görü (computer vision), Java ile mobil uygulama geliştirme ve C# ile sistem programlama alanlarını keşfediyorum. Figma gibi tasarım araçlarını kullanarak kullanıcı dostu ve estetik arayüzler oluşturma konusunda keskin bir göze sahibim. Sorumluluk bilinci yüksek ve hedef odaklı bir geliştirici olarak, problemleri çözmekten ve yenilikçi fikirleri kod dökerek hayata geçirmekten büyük keyif alıyorum. Bir sonraki yaratıcı projenizde birlikte çalışalım!",
+            description:"Frontend ve full-stack projelere tutkuyla bağlı, JavaScript, TypeScript ve MERN stack konularında deneyimli bir junior web geliştiriciyim. Python ile yapay zeka tabanlı bilgisayarlı görü alanında staj sürecinde giriş seviyesinde deneyim edindim; Java ile Android uygulama geliştirme ve C# ile sistem programlama konularında temel pratik çalışmalar yaptım. Figma gibi tasarım araçlarını kullanarak kullanıcı dostu ve estetik arayüzler oluşturma konusunda keskin bir göze sahibim.",
             webcard: "Web Geliştirici",
             mobilecard: "React Native Geliştirici",
             frontendcard: "Frontend Geliştirici",
@@ -170,7 +173,8 @@ export const translations = {
             intro:"Şimdiye kadar neler yaptım",
             overview:"Deneyim.",
             Teknofest_title: "Finalist | UI/UX Tasarımcı",
-            Tenofest_date: "Ocak 2024 - Eylül 2024",
+            Teknofest_name: "Teknofest",
+            Teknofest_date: "Ocak 2024 - Eylül 2024",
             Teknofest_points: [
         "Temel ürün ihtiyaçlarını tanımlamak için kapsamlı kullanıcı araştırması, rakip analizi ve gereksinim toplama süreçlerini yönettim.",
         "Kullanılabilirlik ilkeleri ve marka kimliğiyle uyumlu uçtan uca kullanıcı akışları, tel kafesler (wireframe) ve yüksek çözünürlüklü arayüz ekranları tasarladım.",
@@ -180,6 +184,7 @@ export const translations = {
         "Finalist değerlendirme sürecinin bir parçası olarak tasarım gerekçelerini, araştırma bulgularını ve nihai prototipleri Teknofest jürisine sundum."
             ],
             Aselsan_title: "Stajyer",
+            Aselsan_name: "Aselsan",
             Aselsan_date: "Temmuz 2024 - Ağustos 2024",
             Aselsan_points: [
         "YOLO modelleri, eğitim sonrası kuantizasyon (post-training quantization) iş akışları ve ONNX tabanlı çıkarım (inference) süreçlerini içeren bilgisayarlı görü projelerinde çalıştım.",
@@ -197,6 +202,7 @@ export const translations = {
         "Oyun konseptleri tasarlamak ve sunmak için mentorlar ve akranlarla iş birliği yaparak hem yaratıcı hem de teknik iş akışlarında pratik deneyim kazandım."
             ],
             Yetgen_title: "Katılımcı",
+            Yetgen_name: "Yetgen",
             Yetgen_date: "Ağustos 2023 - Kasım 2023",
             Yetgen_points: [
         "Etkili sunum teknikleri, takım çalışması, Excel tabanlı modelleme ve bilgi, medya, finans, sağlık okuryazarlıklarını kapsayan 21. Yüzyıl Farkındalık Eğitimini tamamladım.",

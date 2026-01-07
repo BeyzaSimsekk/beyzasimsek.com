@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import gsap from "gsap";
 import { ComputersCanvas } from "./canvas";
-import { logo } from "../assets";
+import { useTranslation } from "react-i18next";
 
 const Hero = () => {
   const comp = useRef(null);
   const titleRef = useRef(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const sliderRef = useRef(null);
+  const { t } = useTranslation();
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -126,7 +127,7 @@ const Hero = () => {
           >
             <div className="flex items-baseline">
               {/* SADE GİRİŞ */}
-              <span className="hi-text opacity-0">Hi, I'm</span>
+              <span className="hi-text opacity-0">{t("hero.title")}</span>
               &nbsp;
               {/* HARF ANİMASYONU */}
               <span className="ml-1 sm:ml-2 text-[#915eff]">
@@ -135,10 +136,10 @@ const Hero = () => {
             </div>
           </h1>
           <p className={`${styles.heroSubText} text-white-100 mb-10`}>
-            Versatile{" "}
+            {t("hero.sub_before")}{" "}
             <span className="text-[#b192ff] transition-all duration-300 [text-shadow:0_0_10px_#915eff,0_0_20px_#915eff,0_0_30px_#915eff]">
               {" "}
-              Full-stack Developer{" "}
+              {t("hero.sub_highlight")}{" "}
             </span>{" "}
             with a passion for frontend excellence,{" "}
             <br className="sm:block hidden" /> specializing in developing

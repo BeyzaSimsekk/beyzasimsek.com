@@ -307,29 +307,11 @@ const experiences = [
 const educations = [
   {
     id: "university",
-    title: "Bachelor's Degree",
-    school_name: "Konya Food & Agriculture University",
-    department: "Computer Engineering",
-    date: "Sep 2021 - July 2025",
     icon: kfau,
-    points: [
-      "Graduated with a GPA of 3.77/4.00, ranking second in the faculty.",
-      "Developed 'KFAU Academy' as a senior graduation project.",
-      "Specialized in Web Technologies, Mobile App Development, and UI/UX Design.",
-    ],
   },
   {
     id: "highschool",
-    title: "High School Diploma",
-    school_name: "Meram Anatolian High School",
-    department: "Graduated (Science Track)",
-    date: "Sep 2017 - Jun 2021",
     icon: mal,
-    points: [
-      "Graduated with a GPA of 98.17/100.", 
-      "Member of the Book Interpretation Community.", 
-      "Participated in the English Knowledge Competition.",
-    ],
   },
 ];
 

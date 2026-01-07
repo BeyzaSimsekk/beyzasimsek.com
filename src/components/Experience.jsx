@@ -8,9 +8,9 @@ import "react-vertical-timeline-component/style.min.css";
 
 import { styles } from "../styles";
 import { experiences } from "../constants";
-import { useTranslation } from "react-i18next";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
+import { useTranslation } from "react-i18next";
 
 const ExperienceCard = ({ experience }) => {
   const { t } = useTranslation();
@@ -69,7 +69,6 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
-
   const { t } = useTranslation();
   return (
     <>
@@ -79,8 +78,8 @@ const Experience = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <p className={styles.sectionSubText}>{t('experience.intro')}</p>
-        <h2 className={styles.sectionHeadText}>{t('experience.overview')}</h2>
+        <p className={styles.sectionSubText}>{t("experience.intro")}</p>
+        <h2 className={styles.sectionHeadText}>{t("experience.overview")}</h2>
       </motion.div>
       <div className="mt-10 flex flex-col">
         <VerticalTimeline>

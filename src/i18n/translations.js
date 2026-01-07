@@ -95,20 +95,20 @@ export const translations = {
             overview:"Education.",
             card_university_title:"University",
             card_highschool_title:"High School",
-            uni_title:"Bachelor's Degree",
-            uni_name:"Konya Food & Agriculture University",
-            uni_department:"Computer Engineering",
-            uni_date:"Sep 2021 - July 2025",
-            uni_points: [
+            university_title:"Bachelor's Degree",
+            university_name:"Konya Food & Agriculture University",
+            university_department:"Computer Engineering",
+            university_date:"Sep 2021 - July 2025",
+            university_points: [
       "Graduated with a GPA of 3.77/4.00, ranking second in the faculty.",
       "Developed 'KFAU Academy' as a senior graduation project.",
       "Specialized in Web Technologies, Mobile App Development, and UI/UX Design.",
             ],
-            hs_title:"High School Diploma",
-            hs_name:"Meram Anatolian High School",
-            hs_department:"Graduated (Science Track)",
-            hs_date:"Sep 2017 - Jun 2021",
-            hs_points: [
+            highschool_title:"High School Diploma",
+            highschool_name:"Meram Anatolian High School",
+            highschool_department:"Graduated (Science Track)",
+            highschool_date:"Sep 2017 - Jun 2021",
+            highschool_points: [
       "Graduated with a GPA of 98.17/100.", 
       "Member of the Book Interpretation Community.", 
       "Participated in the English Knowledge Competition.",
@@ -222,24 +222,24 @@ export const translations = {
             ],
         },
         education: {
-            intro:"Akademik Geçmişim",
+            intro:"Akademİk Geçmİşİm",
             overview:"Eğitim.",
             card_university_title:"Üniversite",
             card_highschool_title:"Lise",
-            uni_title:"Lisans Derecesi",
-            uni_name:"Konya Gıda ve Tarım Üniversitesi",
-            uni_department:"Bilgisayar Mühendisliği",
-            uni_date:"Eylül 2021 - Temmuz 2025",
-            uni_points: [
+            university_title:"Lisans Derecesi",
+            university_name:"Konya Gıda ve Tarım Üniversitesi",
+            university_department:"Bilgisayar Mühendisliği",
+            university_date:"Eylül 2021 - Temmuz 2025",
+            university_points: [
         "4.00 üzerinden 3.77 genel not ortalaması (GPA) ile fakülte ikincisi olarak mezun oldum.",
         "Bitirme projesi olarak 'KFAU Academy' platformunu geliştirdim.",
         "Web Teknolojileri, Mobil Uygulama Geliştirme ve UI/UX Tasarımı alanlarında uzmanlaştım."
             ],
-            hs_title:"Lise Diploması",
-            hs_name:"Meram Anadolu Lisesi",
-            hs_department:"Mezun (Sayısal Bölüm)",
-            hs_date:"Eylül 2017 - Haziran 2021",
-            hs_points: [
+            highschool_title:"Lise Diploması",
+            highschool_name:"Meram Anadolu Lisesi",
+            highschool_department:"Mezun (Sayısal Bölüm)",
+            highschool_date:"Eylül 2017 - Haziran 2021",
+            highschool_points: [
         "100 üzerinden 98.17 diploma notu ile mezun oldum.",
         "Kitap Analiz Topluluğu üyesi.",
         "İngilizce Bilgi Yarışması katılımcısı."

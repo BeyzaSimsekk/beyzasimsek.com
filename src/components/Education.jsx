@@ -5,10 +5,23 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { educations } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { useTranslation } from "react-i18next";
 
 const Education = () => {
   const [activeLevel, setActiveLevel] = useState("university");
   const activeData = educations.find((edu) => edu.id === activeLevel);
+
+  const { t } = useTranslation();
+
+  // translations.js yapına göre anahtarları oluşturuyoruz
+  const titleKey = `education.${educations[0].id}_title`;
+  const nameKey = `education.${educations[0].id}_name`;
+  const departmentKey = `education.${educations[0].id}_department`;
+  const dateKey = `education.${educations[0].id}_date`;
+  const pointsKey = `education.${educations[0].id}_points`;
+
+  // returnObjects: true -> Bize string değil, array (dizi) dönmesini sağlar
+  const points = t(pointsKey, { returnObjects: true });
 
   return (
     <div className="flex flex-col w-full">
@@ -19,8 +32,8 @@ const Education = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <p className={styles.sectionSubText}>My Academic Background</p>
-        <h2 className={styles.sectionHeadText}>Education.</h2>
+        <p className={styles.sectionSubText}>{t("education.intro")}</p>
+        <h2 className={styles.sectionHeadText}>{t("education.overview")}</h2>
       </motion.div>
 
       {/* İÇERİK ALANI */}
@@ -36,7 +49,7 @@ const Education = () => {
                   : "bg-tertiary/50 text-gray-400 border-transparent hover:bg-tertiary hover:text-white"
               }`}
           >
-            University
+            {t("education.card_university_title")}
           </button>
 
           <button
@@ -48,7 +61,7 @@ const Education = () => {
                   : "bg-tertiary/50 text-gray-400 border-transparent hover:bg-tertiary hover:text-white"
               }`}
           >
-            High School
+            {t("education.card_highschool_title")}
           </button>
         </div>
 

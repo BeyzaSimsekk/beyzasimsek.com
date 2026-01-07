@@ -10,10 +10,9 @@ import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
 import { useTranslation } from "react-i18next";
 
-const ServiceCard = ({ index, title, icon }) => {
+const ServiceCard = ({ index, id, icon }) => {
   const { t } = useTranslation();
 
-  const titleKey = `about.${services[index].id}card`;
   return (
     <Tilt className="xs:w-[250px] w-full">
       <motion.div
@@ -30,11 +29,11 @@ const ServiceCard = ({ index, title, icon }) => {
         >
           <img
             src={icon}
-            alt={t(titleKey)}
+            alt={t(`about.${id}card`)}
             className="w-16 h-16 object-contain"
           />
           <h3 className="text-white text-[20px] font-bold text-center">
-            {t(titleKey)}
+            {t(`about.${id}card`)}
           </h3>
         </div>
       </motion.div>
@@ -60,7 +59,12 @@ const About = () => {
 
       <div className="pt-12 flex flex-wrap gap-10">
         {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
+          <ServiceCard
+            key={service.id}
+            index={index}
+            id={service.id}
+            icon={service.icon}
+          />
         ))}
       </div>
     </>

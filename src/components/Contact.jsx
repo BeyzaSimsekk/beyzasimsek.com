@@ -103,7 +103,7 @@ const Contact = () => {
     e.preventDefault();
 
     if (!form.name || !form.email || !form.message) {
-      toast.error("Please fill in all fields!");
+      toast.error(`${t("contact.validation_error")}`);
       return;
     }
 

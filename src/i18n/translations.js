@@ -126,7 +126,8 @@ export const translations = {
             form_placeholder_message:"What do you want to say?",
             form_button:"Send",
             form_button_sending:"Sending...",
-            social_title:"Connect with me"
+            social_title:"Connect with me",
+            validation_error: "Please fill in all fields!"
         },
         contact_success_message: "Thank you! I will get back to you as soon as possible✨",
         contact_error_message: "Something went wrong :( Please try again.",
@@ -258,7 +259,8 @@ export const translations = {
             form_placeholder_message:"Neler söylemek istersiniz?",
             form_button:"Gönder",
             form_button_sending:"Gönderiliyor...",
-            social_title:"Benimle bağlantı kurun"
+            social_title:"Benimle bağlantı kurun",
+            validation_error: "Lütfen tüm alanları doldurun!"
         },
         contact_success_message: "Teşekkürler! En kısa sürede size döneceğim.✨",
         contact_error_message: "Bir şeyler ters gitti :( Lütfen tekrar deneyin."

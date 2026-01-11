@@ -10,6 +10,7 @@ import {
   Tech,
   Works,
   SplashScreen,
+  Footer,
 } from "./components";
 import { StarsCanvas } from "./components/canvas";
 import { LanguageProvider } from "./context/LanguageContext";
@@ -39,6 +40,7 @@ const App = () => {
                 <Contact />
                 <StarsCanvas />
               </div>
+              <Footer />
             </div>
           )}
         </AnimatePresence>

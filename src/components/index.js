@@ -5,8 +5,9 @@ import About from './About';
 import Tech from './Tech';
 import Experience from './Experience';
 import Works from './Works';
-import Contact from './Contact';
 import Education from './Education';
+import Contact from './Contact';
+import Footer from './Footer';
 import SplashScreen from './SplashScreen';
 
 export {
@@ -18,6 +19,7 @@ export {
   Works,
   Education,
   Contact, 
+  Footer,
   BallCanvas, 
   SplashScreen
 }

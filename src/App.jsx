@@ -21,26 +21,27 @@ const App = () => {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <div className="relative z-0 bg-primary">
-          <AnimatePresence>
-            {loading && <SplashScreen onComplete={() => setLoading(false)} />}
-          </AnimatePresence>
-          <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-            <Navbar />
-            <Hero />
-          </div>
-          <div className="relative z-0">
-            <About />
-            <Tech />
-            <Works />
-            <Experience />
-            <Education />
-          </div>
-          <div className="relative z-0">
-            <Contact />
-            <StarsCanvas />
-          </div>
-        </div>
+        <AnimatePresence mode="wait">
+          {loading ? (
+            <SplashScreen key="splash" onComplete={() => setLoading(false)} />
+          ) : (
+            <div className="relative z-0 bg-primary">
+              <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+                <Navbar />
+                <Hero />
+              </div>
+              <About />
+              <Experience />
+              <Tech />
+              <Works />
+              <Education />
+              <div className="relative z-0">
+                <Contact />
+                <StarsCanvas />
+              </div>
+            </div>
+          )}
+        </AnimatePresence>
       </BrowserRouter>
     </LanguageProvider>
   );

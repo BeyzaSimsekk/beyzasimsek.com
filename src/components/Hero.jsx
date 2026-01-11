@@ -21,7 +21,7 @@ const Hero = () => {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          delay: 5.2,
+          delay: 0.2,
           ease: "power2.out",
           stagger: 0.02,
         }
@@ -95,7 +95,7 @@ const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto" ref={comp}>
       {/* GSAP Slider Container */}
-      <div className="hidden xl:block absolute top-[65%] left-0 w-full z-0 pointer-events-none select-none opacity-[0.05] overflow-hidden">
+      <div className="block absolute top-[65%] left-0 w-full z-0 pointer-events-none select-none opacity-[0.05] overflow-hidden">
         <div
           ref={sliderRef}
           className="flex flex-row whitespace-nowrap w-max" // w-max: Metnin genişliği neyse o kadar yer kapla (kısıtlama)
@@ -146,11 +146,27 @@ const Hero = () => {
               {t("hero.sub_after_line2")}
             </p>
           </div>
-          <img
-            src="/hero_logo.png"
-            alt=""
-            className="sm:w-80 w-60 sm:mt-7 mt-2 mr-9 sm:mr-0 select-none pointer-events-none"
-          />
+          <motion.div
+            initial={{ y: -5 }}
+            animate={{ y: [-10, 5, -10] }} // Yukarı aşağı süzülme hareketi
+            transition={{
+              duration: 4, // 4 saniyede bir tur
+              repeat: Infinity, // Sonsuz döngü
+              repeatType: "loop",
+              ease: "easeInOut",
+            }}
+            className="relative z-10" // Z-index ile öne çıkardık
+          >
+            <img
+              src="/hero_logo.png"
+              alt="Hero Logo"
+              draggable="false"
+              className="sm:w-80 w-60 sm:mt-7 mt-2 mr-9 sm:mr-0 select-none object-contain filter drop-shadow-[0_0_20px_rgba(145,94,255,0.4)] hover:drop-shadow-[0_0_35px_rgba(145,94,255,0.8)] transition-all duration-300 ease-in-out"
+            />
+
+            {/* Neon Glow Efekti */}
+            <div className="absolute inset-0 bg-[#915eff] opacity-20 blur-[60px] rounded-full -z-10" />
+          </motion.div>
         </div>
       </div>
 

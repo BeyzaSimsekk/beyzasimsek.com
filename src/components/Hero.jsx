@@ -2,7 +2,6 @@ import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import gsap from "gsap";
-import { ComputersCanvas } from "./canvas";
 import { useTranslation } from "react-i18next";
 
 const Hero = () => {
@@ -120,33 +119,40 @@ const Hero = () => {
         </div>
 
         {/* Hero Title Container */}
-        <div className="flex flex-col gap-3 z-10">
-          <h1
-            ref={titleRef}
-            className={`${styles.heroHeadText} flex flex-wrap whitespace-nowrap overflow-hidden cursor-default`}
-          >
-            <div className="flex items-baseline">
-              {/* SADE GİRİŞ */}
-              <span className="hi-text opacity-0">{t("hero.title")}</span>
-              &nbsp;
-              {/* HARF ANİMASYONU */}
-              <span className="ml-1 sm:ml-2 text-[#915eff]">
-                {splitText("Beyza", true)}
-              </span>
-            </div>
-          </h1>
-          <p className={`${styles.heroSubText} text-white-100 mb-10`}>
-            {t("hero.sub_before")}{" "}
-            <span className="text-[#b192ff] transition-all duration-300 [text-shadow:0_0_10px_#915eff,0_0_20px_#915eff,0_0_30px_#915eff]">
-              {" "}
-              {t("hero.sub_highlight")}{" "}
-            </span>{" "}
-            {t("hero.sub_after_line1")} <br className="sm:block hidden" />{" "}
-            {t("hero.sub_after_line2")}
-          </p>
+        <div className="flex sm:flex-row flex-col sm:gap-10 gap-2 items-center align-middle ">
+          <div className="flex flex-col gap-5 z-10">
+            <h1
+              ref={titleRef}
+              className={`${styles.heroHeadText} flex flex-wrap whitespace-nowrap overflow-hidden cursor-default`}
+            >
+              <div className="flex items-baseline">
+                {/* SADE GİRİŞ */}
+                <span className="hi-text opacity-0">{t("hero.title")}</span>
+                &nbsp;
+                {/* HARF ANİMASYONU */}
+                <span className="ml-1 sm:ml-2 text-[#915eff]">
+                  {splitText("Beyza", true)}
+                </span>
+              </div>
+            </h1>
+
+            <p className={`${styles.heroSubText} text-white-100 mb-10`}>
+              {t("hero.sub_before")}{" "}
+              <span className="text-[#b192ff] transition-all duration-300 [text-shadow:0_0_10px_#915eff,0_0_20px_#915eff,0_0_30px_#915eff]">
+                {" "}
+                {t("hero.sub_highlight")}{" "}
+              </span>{" "}
+              {t("hero.sub_after_line1")} <br className="sm:block hidden" />{" "}
+              {t("hero.sub_after_line2")}
+            </p>
+          </div>
+          <img
+            src="/hero_logo.png"
+            alt=""
+            className="sm:w-80 w-60 sm:mt-7 mt-2 mr-9 sm:mr-0 select-none pointer-events-none"
+          />
         </div>
       </div>
-      <ComputersCanvas />
 
       {/* Scroll Down Arrow */}
       <div className="absolute bottom-8 right-8 sm:bottom-4 sm:right-10 md:bottom-4 md:right-12 lg:bottom-2 lg:right-1/2 lg:translate-x-1/2 z-15">

@@ -156,7 +156,7 @@ const Navbar = () => {
               />
               <p className="text-white text-[18px] font-bold cursor-pointer flex">
                 <span className="text-white transition-all duration-300 [text-shadow:0_0_7px_#915eff,0_0_15px_#915eff] hover:[text-shadow:0_0_10px_#915eff,0_0_20px_#915eff,0_0_30px_#915eff] mr-4">
-                  {t("nav.name")}{" "}
+                  Beyza Şimşek{" "}
                 </span>
               </p>
               {/* Desktop için Hover İpucu */}

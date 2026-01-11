@@ -1,7 +1,6 @@
 export const translations = {
     en: {
         nav: {
-            name:"Beyza Simsek",
             about:"About",
             project:"Project",
             work:"Experience",
@@ -134,7 +133,6 @@ export const translations = {
     },
     tr: {
         nav: {
-            name:"Beyza Şimşek",
             about:"Hakkımda",
             project:"Proje",
             work:"Deneyim",

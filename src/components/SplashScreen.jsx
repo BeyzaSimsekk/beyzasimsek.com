@@ -61,7 +61,7 @@ const SplashScreen = ({ onComplete }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050816]" // Senin arkaplan rengin
+      className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-[#050816]" // Senin arkaplan rengin
       variants={containerVariants}
       initial="initial"
       animate="animate"
@@ -100,13 +100,13 @@ const SplashScreen = ({ onComplete }) => {
 
         {/* PROGRESS BAR */}
         <motion.div
-          className="w-full h-[2px] bg-[#1d1836] rounded-full mt-8 overflow-hidden relative"
+          className="w-full h-0.5 bg-[#1d1836] rounded-full mt-8 overflow-hidden relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
           <motion.div
-            className="h-full bg-gradient-to-r from-[#915eff] to-[#bf61ff]"
+            className="h-full bg-linear-to-r from-[#915eff] to-[#bf61ff]"
             initial={{ width: "0%" }}
             animate={{ width: `${progress}%` }}
             transition={{ ease: "linear" }}

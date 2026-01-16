@@ -78,58 +78,72 @@ const technologies = [
   {
     name: "HTML 5",
     icon: html,
+    rating: 5,
   },
   {
     name: "CSS 3",
     icon: css,
+    rating: 5,
   },
   {
     name: "JavaScript",
     icon: javascript,
+    rating: 5,
   },
   {
     name: "TypeScript",
     icon: typescript,
+    rating: 4,
   },
   {
     name: "React JS",
     icon: reactjs,
+    rating: 5,
   },
   {
     name: "Github",
     icon: github_t,
+    rating: 5,
   },
   {
     name: "Tailwind CSS",
     icon: tailwind,
+    rating: 4,
   },
   {
     name: "Expo",
     icon: expo,
+    rating: 3,
   },
   {
     name: "MongoDB",
     icon: mongodb,
+    rating: 5,
   },
   {
     name: "Express JS",
     icon: expressjs,
+    rating: 4,
   },
   {
     name: "git",
     icon: git,
+    rating: 4,
   },
   {
     name: "figma",
     icon: figma,
+    rating: 4,
   },
   {
     name: "Python",
     icon: python,
+    rating: 4,
   },
   {
     name: "Node JS",
     icon: nodejs,
+    rating: 4,
   },
 ];
 

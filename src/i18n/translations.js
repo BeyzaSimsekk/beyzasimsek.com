@@ -25,7 +25,7 @@ export const translations = {
         tech: {
             subtitle:"Interactive Stack",
             heading:"Technologies.",
-            info:"Click icons to interact in 3D",
+            info:"Click or hover over the icons to see more.",
         },
         works: {
             intro:"My work",
@@ -157,7 +157,7 @@ export const translations = {
         tech: {
             subtitle:"Teknolojİlerle Etkİleşİm",
             heading:"Teknolojiler.",
-            info:"3D ortamda etkileşim için ikonlara tıklayın",
+            info:"Detayları görmek için ikonların üzerine gelin veya tıklayın.",
         },
         works: {
             intro:"Çalışmalarım",

@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
 import { motion } from "framer-motion";
-import { textVariant } from "../utils/motion";
+import { fadeIn, textVariant } from "../utils/motion";
 import { styles } from "../styles";
 import { useTranslation } from "react-i18next";
 
@@ -23,8 +24,101 @@ const Star = ({ filled }) => (
   </svg>
 );
 
+const TechCard = ({ index, name, icon, rating = 5, isActive, onClick }) => {
+  // Yıldızların yay şeklinde dizilmesi için hesaplama (Toplam 5 yıldız, -60 dereceden +60 dereceye kadar yayılır.)
+  const stars = Array.from({ length: 5 }, (_, i) => {
+    const angle = -50 + i * 25;
+    const radius = 75; // Yarıçap
+
+    // Dereceyi radyana çevirme
+    const radian = (angle * Math.PI) / 250;
+
+    // Merkez hizalaması
+    const x = radius * Math.sin(radian);
+    const y = -radius * Math.cos(radian);
+
+    return { x, y, filled: i < rating };
+  });
+
+  return (
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.1, 0.75)}
+      className="w-28 h-28 flex relative justify-center items-center group cursor-pointer mt-8 sm:mt-0"
+      onClick={() => onClick(name)}
+    >
+      {/* Background Circle (glass) */}
+      <div
+        className={`w-full h-full bg-tertiary rounded-full flex justify-center items-center border  shadow-card transition-all duration-300
+        ${
+          isActive
+            ? "border-[#915eff]"
+            : "border-white/10 sm:group-hover:border-[#915eff]"
+        }
+      `}
+      >
+        <img
+          src={icon}
+          alt={name}
+          className={`w-16 h-16 object-contain p-1 transition-all duration-300 filter
+                      ${
+                        isActive
+                          ? "grayscale-0"
+                          : "grayscale sm:group-hover:grayscale-0"
+                      }
+          `}
+        />
+      </div>
+
+      {/* Name (hover) */}
+      <div
+        className={`absolute -bottom-8 transition-opacity duration-300
+                    ${
+                      isActive
+                        ? "opacity-100"
+                        : "opacity-0 sm:group-hover:opacity-100"
+                    }
+        `}
+      >
+        <p className="text-[#915eff] text-[13px] font-bold tracking-wider">
+          {name}
+        </p>
+      </div>
+
+      {/* Stars */}
+      <div className="absolute top-1/2 left-1/2 w-0 h-0 pointer-events-none">
+        {stars.map((star, i) => (
+          <div
+            key={i}
+            className={`absolute flex justify-center items-center transition-all duration-500
+                        ${
+                          isActive
+                            ? "scale-100 opacity-100"
+                            : "scale-0 opacity-0 sm:group-hover:scale-100 sm:group-hover:opacity-100"
+                        }
+            `}
+            style={{
+              transform: `translate(${star.x}px, ${star.y}px) translate(-50%, 50%)`,
+            }}
+          >
+            <Star filled={star.filled} />
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
 const Tech = () => {
   const { t } = useTranslation();
+
+  // Hangi teknolojinin aktif olduğunu tutan state
+  const [activeTech, setActiveTech] = useState(null);
+
+  // Tıklama fonksiyonu
+  const handleTechClick = (techName) => {
+    // Eğer zaten aktif olana tıkladıysa kapat (null yap), değilse yenisini aç
+    setActiveTech(activeTech === techName ? null : techName);
+  };
   return (
     <>
       <motion.div variants={textVariant()} className="mb-10 text-center">
@@ -34,8 +128,14 @@ const Tech = () => {
       </motion.div>
 
       <div className="flex flex-row flex-wrap justify-center items-center gap-10">
-        {technologies.map((technology) => (
-          <div className="w-28 h-28" key={technology.name}></div>
+        {technologies.map((technology, index) => (
+          <TechCard
+            key={technology.name}
+            index={index}
+            {...technology}
+            isActive={activeTech === technology.name}
+            onClick={handleTechClick}
+          />
         ))}
       </div>
     </>

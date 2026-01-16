@@ -126,12 +126,12 @@ const technologies = [
     rating: 4,
   },
   {
-    name: "git",
+    name: "Git",
     icon: git,
     rating: 4,
   },
   {
-    name: "figma",
+    name: "Figma",
     icon: figma,
     rating: 4,
   },

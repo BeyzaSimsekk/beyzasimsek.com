@@ -34,6 +34,11 @@ import {
   linkedin,
   medium,
   youtube,
+  framermotion,
+  vscode,
+  postman,
+  threejs,
+  sql,
 } from "../assets";
 
 export const navLinks = [
@@ -144,6 +149,31 @@ const technologies = [
     name: "Node JS",
     icon: nodejs,
     rating: 4,
+  },
+  {
+    name: "Framer Motion",
+    icon: framermotion,
+    rating: 4,
+  },
+  {
+    name: "VS Code",
+    icon: vscode,
+    rating: 5,
+  },
+  {
+    name: "Postman",
+    icon: postman,
+    rating: 4,
+  },
+  {
+    name: "Three JS",
+    icon: threejs,
+    rating: 2,
+  },
+  {
+    name: "SQL",
+    icon: sql,
+    rating: 3,
   },
 ];
 

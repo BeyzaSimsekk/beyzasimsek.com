@@ -21,6 +21,11 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import python from "./tech/python.png";
 import expo from "./tech/expo.png";
+import framermotion from "./tech/framer-motion.png";
+import vscode from "./tech/vscode.png";
+import postman from "./tech/postman.png";
+import threejs from "./tech/threejs.png";
+import sql from "./tech/sql.png";
 
 import kos from "./company/kos.png";
 import yetgen from "./company/yetgen.png";
@@ -67,6 +72,11 @@ export {
   typescript,
   python,
   expo,
+  framermotion,
+  vscode,
+  postman,
+  threejs,
+  sql,
   kos,
   yetgen,
   oua,

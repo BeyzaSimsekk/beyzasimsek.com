@@ -30,9 +30,7 @@ const ServiceCard = ({ index, id, icon, isActive, onClick }) => {
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.2, 0.75)}
-      className="xs:w-[250px] w-full group"
-      whileHover={{ y: -8, scale: 1.02 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="xs:w-[250px] w-full group cursor-pointer"
       onClick={() => onClick(id)}
     >
       <div
